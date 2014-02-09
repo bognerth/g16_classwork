@@ -1,0 +1,35 @@
+      <% question = @question if @question %>
+      <tr>
+        <td>
+          <%= link_to(raw("<i class='fi-pencil dark-green icon-normal'></i>"), 
+              edit_question_path(question.id), 
+              :remote => true, :title => "Frage editieren.",
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+          <i class='fi-social-joomla trenner-icon-small'></i>
+          <%= link_to(raw("<i class='fi-trash dark-green icon-normal'></i>"), 
+              question, 
+              :remote => true, :title => "Frage entfernen", method: :delete, data: { confirm: 'Element entfernen?' },
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+          <i class='fi-social-joomla trenner-icon-small'></i>
+          <%= link_to(raw("<i class='fi-male-female dark-green icon-normal'></i>"), 
+              clone_questions_path(question.id), 
+              :remote => true, :title => "Frage clonen",
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+          <i class='fi-social-joomla trenner-icon-small'></i>
+          <%= link_to(raw("<i class='fi-crop dark-green icon-normal'></i>"), 
+              lostandfound_questions_path(question.id), 
+              :remote => true, :title => "Frage verschieben.",
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+        </td>
+
+        <td><%= question.title %> (<%= question.category %>)</td>
+        
+        <td id="question_answer_<%= question.id %>">          
+          <%= link_to(raw("<i class='fi-paperclip dark-green icon-normal'></i>"), 
+              new_answer_path(:question_id => question.id), 
+              :remote => true, :title => "Neue Antwort zur Frage hinzufuegen.",
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %> 
+          <i class='fi-social-joomla trenner-icon-small'></i><br />
+          <%= render(:partial => 'answers/answer', :locals => {:answers => question.answers}) unless question.answers.empty? %>
+        </td>
+      </tr>

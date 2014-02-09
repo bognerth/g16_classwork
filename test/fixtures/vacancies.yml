@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  period: MyString
+  first_day: 2014-02-04
+  last_day: 2014-02-04
+
+two:
+  title: MyString
+  period: MyString
+  first_day: 2014-02-04
+  last_day: 2014-02-04

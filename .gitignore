@@ -1,0 +1,12 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore all logfiles and tempfiles.
+/log/*.log
+/tmp
+
+# Secrets
+/db/seeds.rb
+/config/application.yml
+/config/database.yml
+/config/deploy.rb

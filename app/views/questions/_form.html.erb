@@ -1,0 +1,14 @@
+<%= simple_form_for(@question, :remote => true) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :category, :collection => Question::CATEGORIES %>
+    <%= f.input :points %>
+    <%= f.input :testtype_id, :as => :hidden %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

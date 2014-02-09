@@ -1,0 +1,21 @@
+<h3>Fragen von <%= @testtype.title %></h3>
+<div id="window_modal" class="reveal-modal small" data-reveal></div>
+
+<p><%= link_to 'Neue Frage hinzufuegen', new_question_path(:testtype_id => @testtype.id), 
+              :remote => true, 
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"', 
+              title: "Eine neue Frage zum Test hinzufügen." %>
+<table class="datatable">
+  <thead>
+    <th></th>
+    <th>Titel</th>
+    <th>Antwort</th>
+  </thead>
+  <tbody>
+    <div id="append_question"></div>
+    <% @questions.each do |question| %>
+      <%= render :partial => 'questions/question', :object => question %>
+    <% end %>
+
+  </tbody>
+</table>

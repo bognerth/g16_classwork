@@ -1,0 +1,12 @@
+          <% answers = @answers if @answers %>
+          <% answers.each do |answer| %>
+            <div id="answer_<%= answer.id %>">
+              <%= answer.title %>
+              <i class='fi-social-joomla trenner-icon-small'></i>
+              <%= link_to(raw("<i class='fi-trash dark-green icon-small'></i>"), 
+                answer, 
+                :remote => true, :title => "Antwort entfernen", method: :delete, data: { confirm: 'Antwort entfernen bestaetigen!!' },
+                :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+              <br />
+            </div>
+          <% end %>

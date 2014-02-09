@@ -1,0 +1,29 @@
+<h1>Listing studentanswers</h1>
+
+<table>
+  <tr>
+    <th>Question</th>
+    <th>Studenttest</th>
+    <th>Points</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @studentanswers.each do |studentanswer| %>
+  <tr>
+    <td><%= studentanswer.question_id %></td>
+    <td><%= studentanswer.studenttest_id %></td>
+    <td><%= studentanswer.points %></td>
+    <td><%= studentanswer.title %></td>
+    <td><%= link_to 'Show', studentanswer %></td>
+    <td><%= link_to 'Edit', edit_studentanswer_path(studentanswer) %></td>
+    <td><%= link_to 'Destroy', studentanswer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Studentanswer', new_studentanswer_path %>

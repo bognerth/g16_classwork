@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "G16 CRM Terminplaner" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+
+    <div class="row">
+    <div class="small-12 columns">
+      <ul class="button-group right">
+          <li><%= link_to "Zur Login Seite", "http://g16-hh.de", :class => "button tiny lightblue" %></li>
+          <li><%= link_to "Log Out #{current_user.login}", "http://g16-hh.de/logout", :class => "button tiny lightblue " %></li>
+      </ul>
+      
+        <%= image_tag('g16_logo-green.png', :size => '280x100', title: "Terminplaner - G16 Farmsen") %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span style="color:#e36a16; font-size:2em; border-bottom: 3px #79B578 solid;"  >Terminplaner</span>
+    </div>
+    </div>
+   
+       
+    <!-- NAV -->
+    <div class="row">
+      <div class="small-12 columns">
+        <%= render 'layouts/navigation' if current_user %>      
+      </div>
+    </div>
+   
+   
+    <!-- Main Page Content and Sidebar -->
+     <div class="row">
+      <div class="small-12 columns">
+        <div id="flash-message">
+          <% flash.each do |name, msg| %>
+            <div data-alert class="alert-box <%= name %> radius"><%= msg %></div>
+          <% end %>
+        </div>
+
+        <%= yield %>
+
+      </div>
+    </div>
+   
+    <!-- End Main Content and Sidebar -->
+   
+   
+    <!-- Footer -->
+   
+    <footer class="row">
+      <div class="large-12 columns">
+        <hr />
+        <div class="row">
+          <div class="large-6 columns">
+            <p>© Thomas Bogner 2013.</p>
+          </div>
+          <div class="large-6 columns">
+            <ul class="inline-list right">
+              <li><a href="http://www.g16hh.de/">G16 Farmsen</a></li>
+              <li><a href="http://141.91.210.14/">G16 Moodle</a></li>
+              <li><a href="https://www2.wibes.de">Wibes</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>

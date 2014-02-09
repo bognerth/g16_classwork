@@ -1,0 +1,55 @@
+a.paginate_button,
+a.paginate_active {
+    display: inline-block;
+    background-color: lightgrey;
+
+    padding: 2px 6px;
+    margin-left: 2px;
+    cursor: pointer;
+    *cursor: hand;
+}
+ 
+a.paginate_active {
+    background-color: transparent;
+    border: 1px solid black;
+}
+ 
+a.paginate_button_disabled {
+    color: #3d6672;
+}
+.paging_full_numbers a:active {
+    outline: none
+}
+.paging_full_numbers a:hover {
+    text-decoration: none;
+}
+ 
+div.dataTables_paginate span>a {
+    width: 15px;
+    text-align: center;
+}
+ 
+div.dataTables_info {
+    padding: 9px 6px 6px 6px;
+}
+
+
+
+.dark-green { color: darkgreen; }
+.dark-red { color: darkred; }
+.dark-blue { color: darkblue;  }
+
+
+.icon-big { font-size: 2em;}
+.icon-normal { font-size: 1.5em;}
+.icon-small { font-size: 1em;}
+
+.trenner-icon { font-size: 1.5em; color: orange; padding-left: 10px; padding-right:10px;}
+.trenner-icon-small { font-size: 1em; color: orange; padding-left: 5px; padding-right:5px;}
+
+.activity_ferien { background-color: #EDDA74; color: white;}
+.activity_belegt { background-color:  #737CA1; color: white;}
+.activity_frei { background-color:  #CFECEC;}
+.activity_klassenarbeit { background-color: #e36a16; color: white; }
+.activity_referat { background-color: #98AFC7; color: white;}
+.activity_lehrer_abwesend { background-color: #79B578; color: white;}

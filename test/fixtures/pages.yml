@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyString
+  lecture: MyString
+  period_start: 2014-02-03
+  period_end: 2014-02-03
+  day_of_week: MyString
+  presentations_per_day: 1
+
+two:
+  title: MyString
+  description: MyString
+  lecture: MyString
+  period_start: 2014-02-03
+  period_end: 2014-02-03
+  day_of_week: MyString
+  presentations_per_day: 1

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  student: MyString
+  login: MyString
+  theme: MyString
+  notice: MyText
+  day_id: 1
+
+two:
+  student: MyString
+  login: MyString
+  theme: MyString
+  notice: MyText
+  day_id: 1
