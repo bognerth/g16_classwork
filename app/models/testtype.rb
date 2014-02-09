@@ -4,5 +4,5 @@ class Testtype < ActiveRecord::Base
   has_many :tests
   has_many :questions
   
-  COURSES = %w( Netzwerk Benutzerverwaltung Skripting )
+  COURSES = %w( Netzwerk Benutzerverwaltung Skripting LostAndFound )
 end

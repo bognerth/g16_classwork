@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "G16 CRM Terminplaner" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : "G16 Klassenarbeiten" %></title>
 
     <%= stylesheet_link_tag    "application" %>
     <%= javascript_include_tag "modernizr" %>
@@ -20,9 +20,9 @@
           <li><%= link_to "Log Out #{current_user.login}", "http://g16-hh.de/logout", :class => "button tiny lightblue " %></li>
       </ul>
       
-        <%= image_tag('g16_logo-green.png', :size => '280x100', title: "Terminplaner - G16 Farmsen") %>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <span style="color:#e36a16; font-size:2em; border-bottom: 3px #79B578 solid;"  >Terminplaner</span>
+      <%= image_tag('g16_logo-green.png', :size => '280x100', title: "Klassenarbeit - G16 Farmsen") %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="color:#e36a16; font-size:2em; border-bottom: 3px #79B578 solid;"  >Klassenarbeiten</span>
     </div>
     </div>
    
@@ -59,7 +59,7 @@
         <hr />
         <div class="row">
           <div class="large-6 columns">
-            <p>© Thomas Bogner 2013.</p>
+            <p>© Thomas Bogner 2014.</p>
           </div>
           <div class="large-6 columns">
             <ul class="inline-list right">

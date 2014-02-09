@@ -12,10 +12,8 @@
     <th>Antwort</th>
   </thead>
   <tbody>
-    <div id="append_question"></div>
     <% @questions.each do |question| %>
       <%= render :partial => 'questions/question', :object => question %>
     <% end %>
-
   </tbody>
 </table>

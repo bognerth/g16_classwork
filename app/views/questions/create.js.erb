@@ -1,2 +1,3 @@
     $('#window_modal').foundation('reveal', 'close');
-    $('#append_question').append("<%= j render @question %>");
+    $('tbody').prepend("<%= j render @question %>");
+ 

@@ -1,6 +1,23 @@
 class QuestionsController < ApplicationController
-  # GET /questions
-  # GET /questions.json
+
+  def clone 
+    question_hash = {}
+    q = Question.find(params[:id])
+    Question.accessible_attributes.each do |att|
+      question_hash[att] = q[att.to_sym] unless att.empty?
+    end
+    @question = Question.new(question_hash)
+    render 'new'
+  end
+
+  def lostandfound
+    q = Question.find(params[:id])
+    @question_id = q.id
+    q.testtype_id = Testtype.where(:coursetype => 'LostAndFound').first.id
+    q.save
+    render "destroy"
+  end
+
   def index
     @questions = Question.all
 
@@ -35,6 +52,10 @@ class QuestionsController < ApplicationController
   # GET /questions/1/edit
   def edit
     @question = Question.find(params[:id])
+    respond_to do |format|
+      format.html # new.html.erb
+      format.js
+    end
   end
 
   # POST /questions
@@ -61,10 +82,10 @@ class QuestionsController < ApplicationController
     respond_to do |format|
       if @question.update_attributes(params[:question])
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
-        format.json { render json: @question.errors, status: :unprocessable_entity }
+        format.js { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -73,11 +94,12 @@ class QuestionsController < ApplicationController
   # DELETE /questions/1.json
   def destroy
     @question = Question.find(params[:id])
+    @question_id = @question.id
     @question.destroy
 
     respond_to do |format|
       format.html { redirect_to questions_url }
-      format.json { head :no_content }
+      format.js
     end
   end
 end
