@@ -1,3 +1,4 @@
     $('#window_modal').foundation('reveal', 'close');
     $('tbody').prepend("<%= j render @question %>");
+    $('#sum_points').html("(<%= j @sum_points.to_s %> Punkte gesamt.)")
  

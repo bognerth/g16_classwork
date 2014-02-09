@@ -11,14 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140208163711) do
+ActiveRecord::Schema.define(:version => 20140209124858) do
 
   create_table "answers", :force => true do |t|
-    t.string   "title"
+    t.text     "title"
     t.integer  "points",      :default => 0
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
     t.integer  "question_id"
+    t.string   "order",       :default => "o"
   end
 
   create_table "questions", :force => true do |t|
@@ -27,8 +28,9 @@ ActiveRecord::Schema.define(:version => 20140208163711) do
     t.integer  "testtype_id"
     t.integer  "points",      :default => 5
     t.string   "image"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+    t.string   "order",       :default => "o"
   end
 
   create_table "studentanswers", :force => true do |t|

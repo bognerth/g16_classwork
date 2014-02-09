@@ -1,6 +1,6 @@
       <% question = @question if @question %>
       <tr id="question_zeile_<%= question.id %>">
-        <td>
+        <td><nobr>
           <%= link_to(raw("<i class='fi-pencil dark-green icon-normal'></i>"), 
               edit_question_path(question.id), 
               :remote => true, :title => "Frage editieren.",
@@ -20,6 +20,7 @@
               lostandfound_questions_path(:id => question.id), 
               :remote => true, :title => "Frage verschieben.",
               :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+          </nobr>
         </td>
 
         <td id="question_<%= question.id %>"><%= question.title %> (<%= question.category %>)</td>
@@ -32,4 +33,5 @@
           <i class='fi-social-joomla trenner-icon-small'></i><br />
           <%= render(:partial => 'answers/answer', :locals => {:answers => question.answers}) unless question.answers.empty? %>
         </td>
+        <td><%= question.points %></td>
       </tr>

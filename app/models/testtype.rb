@@ -5,4 +5,8 @@ class Testtype < ActiveRecord::Base
   has_many :questions
   
   COURSES = %w( Netzwerk Benutzerverwaltung Skripting LostAndFound )
+
+  def sum_points
+    questions.sum(:points)
+  end
 end

@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
   # GET /questions/new
   # GET /questions/new.json
   def new
-    @question = Question.new(:testtype_id => params[:testtype_id])
+    @question = Question.new(:testtype_id => params[:testtype_id], :category => 'Multiplechoice')
 
     respond_to do |format|
       format.html # new.html.erb
@@ -65,6 +65,7 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
+        @sum_points = Question.where(:testtype_id => @question.testtype_id).sum(:points)
         format.html { redirect_to @question, notice: 'Question was successfully created.' }
         format.js
       else
