@@ -1,5 +1,5 @@
 G16Classwork::Application.routes.draw do
-  root :to => 'tests#index'  
+  root :to => 'classtests#index'  
   resources :studentanswers
 
   resources :answers
@@ -15,7 +15,7 @@ G16Classwork::Application.routes.draw do
 
   resources :studenttests
 
-  resources :tests do    
+  resources :classtests do    
     member do
       get 'state'
     end

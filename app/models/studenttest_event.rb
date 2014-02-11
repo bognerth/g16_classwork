@@ -3,7 +3,7 @@ class StudenttestEvent < ActiveRecord::Base
   belongs_to :studenttest
 
   validates_presence_of :studenttest_id
-  validates_inclusion_of :state, in: Test::STATES
+  validates_inclusion_of :state, in: Classtest::STATES
 
   #!! Method nicht verwenden, funktioniert nur unter sqlite
   def self.with_last_state(state)

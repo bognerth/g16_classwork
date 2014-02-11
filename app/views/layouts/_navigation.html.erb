@@ -30,10 +30,10 @@
                 <li class="has-dropdown">
                   <a href="#">Tests</a>
                   <ul class="dropdown">
-                    <li><%= link_to 'Alle', tests_path %></li>
-                    <li><%= link_to 'Neu', new_test_path %></li>
-                    <% Test.order(:title).each do |test| %>
-                      <li><%= link_to test.title, test_path(test.id) %></li>
+                    <li><%= link_to 'Alle', classtests_path %></li>
+                    <li><%= link_to 'Neu', new_classtest_path %></li>
+                    <% Classtest.order(:title).each do |classtest| %>
+                      <li><%= link_to classtest.title, classtest_path(classtest.id) %></li>
                     <% end %>
                   </ul>
                 </li>

@@ -1,7 +1,8 @@
 class Studenttest < ActiveRecord::Base
-  attr_accessible :end, :points, :start, :student_id, :test_id
+  attr_accessible :end, :points, :start, :student_id, :classtest_id
 
   has_many :events, class_name: "StudenttestEvent"
+  belongs_to :classtest
 
   STATES = %w[new started closed shipped ]
   delegate :new?, :started?, :closed?, :shipped?, to: :current_state

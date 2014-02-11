@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140210142133) do
+ActiveRecord::Schema.define(:version => 20140211090645) do
 
   create_table "answers", :force => true do |t|
     t.text     "title"
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(:version => 20140210142133) do
     t.datetime "updated_at",                   :null => false
     t.integer  "question_id"
     t.string   "order",       :default => "o"
+  end
+
+  create_table "classtest_events", :force => true do |t|
+    t.string   "state"
+    t.integer  "classtest_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "classtests", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "category"
+    t.integer  "testtype_id"
+    t.integer  "lecture_id"
+    t.integer  "duration"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "questions", :force => true do |t|
@@ -52,31 +70,13 @@ ActiveRecord::Schema.define(:version => 20140210142133) do
   end
 
   create_table "studenttests", :force => true do |t|
-    t.integer  "test_id"
+    t.integer  "classtest_id"
     t.integer  "student_id"
     t.datetime "start"
     t.datetime "end"
-    t.integer  "points",     :default => 0
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-  end
-
-  create_table "test_events", :force => true do |t|
-    t.string   "state"
-    t.integer  "test_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "tests", :force => true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "category"
-    t.integer  "testtype_id"
-    t.integer  "lecture_id"
-    t.integer  "duration"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.integer  "points",       :default => 0
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
   end
 
   create_table "testtypes", :force => true do |t|

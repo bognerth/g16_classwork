@@ -1,10 +1,10 @@
-<%= simple_form_for(@test) do |f| %>
+<%= simple_form_for(@classtest) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :category, collection: Test::CATEGORIES %>
+    <%= f.input :category, collection: Classtest::CATEGORIES %>
     <%= f.input :testtype_id, collection: Testtype.all %>
     <%= f.input :lecture_id, collection: JSON.parse($redis.get("lectures")).map{|l| [l['title'],l['id']] } %>
     <%= f.input :duration %>
