@@ -1,3 +1,37 @@
+.current_state { background-color: grey; color: white; }
+
+.dark-green { color: darkgreen; }
+.dark-red { color: darkred; }
+.dark-blue { color: darkblue;  }
+.color-orange { color: orange; }
+
+.small-font { font-size: 0.7em;}
+
+.icon-big { font-size: 2em;padding: 0 5px;}
+.icon-normal { font-size: 1.5em; padding: 0 2px;}
+.icon-small { font-size: 1em; padding: 0 2px;}
+
+.trenner-icon { font-size: 1.5em; color: orange; padding-left: 10px; padding-right:10px;}
+.trenner-icon-small { font-size: 1em; color: orange; padding-left: 5px; padding-right:5px;}
+
+.activity_ferien { background-color: #EDDA74; color: white;}
+.activity_belegt { background-color:  #737CA1; color: white;}
+.activity_frei { background-color:  #CFECEC;}
+.activity_klassenarbeit { background-color: #e36a16; color: white; }
+.activity_referat { background-color: #98AFC7; color: white;}
+.activity_lehrer_abwesend { background-color: #79B578; color: white;}
+
+.purr {
+  position: fixed;
+  top: 30px;
+  right: 100px;
+  width: 250px;
+  padding: 20px;
+  background-color: #FCC;
+  border: solid 2px #666;
+  &:first-letter { text-transform: uppercase };
+}
+
 a.paginate_button,
 a.paginate_active {
     display: inline-block;
@@ -33,25 +67,3 @@ div.dataTables_info {
     padding: 9px 6px 6px 6px;
 }
 
-
-
-.dark-green { color: darkgreen; }
-.dark-red { color: darkred; }
-.dark-blue { color: darkblue;  }
-
-.small-font { font-size: 0.7em;}
-
-
-.icon-big { font-size: 2em;}
-.icon-normal { font-size: 1.5em;}
-.icon-small { font-size: 1em;}
-
-.trenner-icon { font-size: 1.5em; color: orange; padding-left: 10px; padding-right:10px;}
-.trenner-icon-small { font-size: 1em; color: orange; padding-left: 5px; padding-right:5px;}
-
-.activity_ferien { background-color: #EDDA74; color: white;}
-.activity_belegt { background-color:  #737CA1; color: white;}
-.activity_frei { background-color:  #CFECEC;}
-.activity_klassenarbeit { background-color: #e36a16; color: white; }
-.activity_referat { background-color: #98AFC7; color: white;}
-.activity_lehrer_abwesend { background-color: #79B578; color: white;}

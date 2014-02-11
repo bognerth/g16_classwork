@@ -1,0 +1,38 @@
+Legen Sie im Homeverzeichnis des angemeldeten Benutzers das Verzeichnis classwork an, erstellen eine Datei 'versuch.txt', schreiben den Text 'Ich bin gut' hinein, lesen den Inhalt der Datei ein und geben diesen auf der Console aus. Nennen SIe die Datei: datei_neu.sh (5 P.)
+
+Geben Sie den Inhalt des Verzeichnisses Dokumente des angemeldeten Benutzers auf der Console aus. Nennen Sie die Datei 'verzeichnis.sh'. (5 P)
+
+Legen Sie eine Datei parameter.sh an. Wenn diese Datei aufgerufen wird, dann soll der Name der Datei und des 1. Parameters auf der Console ausgegeben werden. Rufen Sie die Datei anschließend mit: './paramter.sh DiesIstEinVersuch' auf. (5 P.)
+
+Das Skript verzeichnis_exists.sh testet ob das Verzeichnis 'NewDir'  im aktuellen Home-Verzeichnis des Users existiert. Ist dies nicht der Fall, so wird dieses Verzeichnis angelegt. Existiert es bereits, gibt es den Namen des Verzeichnisses auf der Konsole aus. (10 P.)
+
+Das Skript dateien_anlegen.sh in den Ordner 'NewDir'. Es schaut nach, ob dort die Dateien datei1.txt und datei2.txt existiert. Falls die Dateien existieren werden Sie gemeinsam, also mit einem Befehl gelöscht. In die neuerstellte Datei datei1.txt wird mit Hilfe einer while-schleife 30 mal die Zeichenfolge 'Achtung, Achtung, wilder Affe trampelt alles nieder.' (10 P)
+
+Das Programm 'systemzeit.sh' schreibt die  Systemzeit und die auf dem Rechner angemeldeten Benutzer in die Ausgabe. (5 P)
+
+Schreiben Sie ein Shellskript 'pseudocode.sh', das den größten gemeinsamen Teiler (GGT) zweier ganzzahliger Argumente berechnet und ausgibt.
+(Also: der größte gemeinsame Teiler von 12 und 18 ist 6)
+Nutzen Sie den Pseudocode:
+     GGT(a,b)
+     Wenn a = 0
+         Dann gebe b aus
+         Sonst solange b <> 0
+                   Wenn a > b
+                           Dann a = a – b
+                           Sonst b = b - a
+     Gebe a aus
+(10 P.)
+
+Überprüfen Sie mit dem Skript 'exists_user.sh', ob der Benutzer 'theo' auf ihrem System existiert. Falls ja soll die ID des Users ausgegeben werden, falls nein soll das Skript mit der Fehlermeldung: 'User existiert nicht' terminieren. (10 P.)
+
+Das Skript 'datum_speichern.sh' speichert das aktuelle Datum in der Form: '10.02.2014' in der Variable datum. Dann wird der Inhalt der Variablen auf der Console ausgegeben. (5 P)
+
+Ermitteln SIe die Anzahl der Dateien, die sich in dem Verzeichnis /etc befinden in der Variable datei_count. Skriptname datei_count.sh. (5 P)
+
+Downloaden Sie die Datei mr-universum.txt von der Dokumentenseite. Geben Sie die Zeilen dieser Datei zeilenweise aus. Das Skript heißt: zeilen_ausgeben.sh (10 P.)
+
+Nutzen Sie die Datei mr-universum. Das Skript mr_universum.sh sucht in dieser Datei mit dem Befehl grep nach dem Mr. Universum des Jahres 1976 und gibt ihn auf der Console aus. (10 P.)
+
+Programmieren Sie einen kleinen Rechner. Das Bash-Skript 'rechner.sh' fordert den Benutzer auf nacheinander zwei Zahlen einzugeben. Sie überprüfen, ob der User tatsächlich Zahlen eingegeben hat. Dann multiplizieren Sie die Zahlen und geben das Ergebnis aus. Dananch wird der User wieder aufgefordert zwei Zahlen einzugeben. Das Programm läuft solange, bis der User 'exit' eingibt. (10 P.)
+
+

@@ -23,7 +23,13 @@
           </nobr>
         </td>
 
-        <td id="question_<%= question.id %>"><%= question.title %> (<%= question.category %>)</td>
+        <td id="question_<%= question.id %>">
+          <%= best_in_place question, :title, :type => :textarea %>
+        </td>
+        <td>
+            <%= question.category %>. 
+            <%= best_in_place question, :order %>
+        </td>
         
         <td id="question_answer_<%= question.id %>">          
           <%= link_to(raw("<i class='fi-paperclip dark-green icon-normal'></i>"), 

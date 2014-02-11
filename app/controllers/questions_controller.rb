@@ -84,9 +84,11 @@ class QuestionsController < ApplicationController
       if @question.update_attributes(params[:question])
         format.html { redirect_to @question, notice: 'Question was successfully updated.' }
         format.js
+        format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.js { render json: @question.errors, status: :unprocessable_entity }
+        format.json { render json: @question.errors, status: :unprocessable_entity }
       end
     end
   end

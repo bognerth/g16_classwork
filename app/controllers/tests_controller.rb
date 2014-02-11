@@ -1,8 +1,21 @@
 class TestsController < ApplicationController
-  # GET /tests
-  # GET /tests.json
-  def index
+
+  def state
+    test = Test.find(params[:id])
+    test.change(params[:state])
     @tests = Test.all
+    respond_to do |format|
+      format.html {redirect_to tests_url}
+      format.json { render json: @tests }
+    end    
+  end
+
+  def index
+    if @current_user.admin?
+      @tests = Test.all
+    else
+      @tests = Test.where(:lecture_id => eval($redis.hget(@current_user.login.to_sym, :classwork_lecture))['id'])
+    end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -10,8 +23,6 @@ class TestsController < ApplicationController
     end
   end
 
-  # GET /tests/1
-  # GET /tests/1.json
   def show
     @test = Test.find(params[:id])
 

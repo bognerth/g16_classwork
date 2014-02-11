@@ -1,29 +1,12 @@
-<p id="notice"><%= notice %></p>
-
+<h3><%= @test.title %></h3>
 <p>
-  <b>Title:</b>
-  <%= @test.title %>
+  Testtyp: <%= @test.testtype.title %><br />
+  Kurs: <%= JSON.parse($redis.get("lectures")).find{|l| l['id'] == @test.lecture_id}['title'] %><br />
+  Kategorie: <%= @test.category %><br />
+  Dauer: <%= @test.duration %><br />
+  Beschreibung: <%= @test.description %>
 </p>
 
-<p>
-  <b>Description:</b>
-  <%= @test.description %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @test.category %>
-</p>
-
-<p>
-  <b>Lecture:</b>
-  <%= @test.lecture_id %>
-</p>
-
-<p>
-  <b>Duration:</b>
-  <%= @test.duration %>
-</p>
 
 
 <%= link_to 'Edit', edit_test_path(@test) %> |

@@ -6,18 +6,21 @@
     <th>Title</th>
     <th>Description</th>
     <th></th>
-    <th></th>
-    <th></th>
+
   </tr>
 
 <% @testtypes.each do |testtype| %>
   <tr>
     <td><%= testtype.coursetype %></td>
-    <td><%= testtype.title %></td>
-    <td><%= testtype.description %></td>
-    <td><%= link_to 'Show', testtype %></td>
-    <td><%= link_to 'Edit', edit_testtype_path(testtype) %></td>
-    <td><%= link_to 'Destroy', testtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= best_in_place testtype, :title %></td>
+    <td><%= best_in_place testtype, :description, :type => :textarea %></td>
+    <td>
+      <%= link_to raw("<i class='fi-eye dark-green icon-normal'></i>"), testtype %>
+      <i class='fi-social-joomla trenner-icon-small'></i>
+      <%= link_to raw("<i class='fi-pencil dark-green icon-normal'></i>"), edit_testtype_path(testtype) %>
+      <i class='fi-social-joomla trenner-icon-small'></i>
+      <%= link_to raw("<i class='fi-trash dark-green icon-normal'></i>"), testtype, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
   </tr>
 <% end %>
 </table>
