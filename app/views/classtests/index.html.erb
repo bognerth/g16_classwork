@@ -22,9 +22,11 @@
       <td><%= classtest.duration %></td>
       <% if current_user.admin? %>
         <td>
+          <nobr>
           <% Classtest::STATES.each do |state| %>
-            <%= classtest.current_state == state ? raw("<span class='current_state'>#{state}</span>") : link_to(state,state_classtest_path(classtest,:state => state))  %> |  
+            <%= classtest.current_state == state ? raw("<i title='#{state}' class='fi-#{Classtest::ICON_STATES[state]} dark-green icon-normal'></i></span>") : link_to(raw("<i class='fi-#{Classtest::ICON_STATES[state]} dark-red icon-normal'></i>"),state_classtest_path(classtest,:state => state), :title => state)  %>  
           <% end %>
+          </nobr>
         </td>
         <td>
           <nobr>

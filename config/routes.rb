@@ -2,12 +2,15 @@ G16Classwork::Application.routes.draw do
   root :to => 'classtests#index'  
   resources :studentanswers
 
-  resources :answers
+  resources :answers 
 
   resources :questions do
     collection do
       get 'lostandfound'
       get 'clone'
+    end
+    member do 
+      get 'answers'
     end
   end
 

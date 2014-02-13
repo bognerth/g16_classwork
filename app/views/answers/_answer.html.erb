@@ -1,12 +1,28 @@
-          <% answers = @answers if @answers %>
-          <% answers.each do |answer| %>
-            <div id="answer_<%= answer.id %>">
-              <%= answer.title %>
-              <i class='fi-social-joomla trenner-icon-small'></i>
-              <%= link_to(raw("<i class='fi-trash dark-green icon-small'></i>"), 
+    <% answers = @answers if @answers %>
+    
+    <h3>Antworten auf die Frage: <%= answers.first.question.title %></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Titel</th>
+          <th>Punkte</th>
+          <th>Order</th>
+          <th>Entfernen</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% answers.each do |answer| %>
+          <tr id="answer_<%= answer.id %>">
+            <td><%= best_in_place answer, :title %></td>
+            <td><%= best_in_place answer, :points %></td>
+            <td><%= best_in_place answer, :order %></td>
+            <td><%= link_to(raw("<i class='fi-trash dark-red icon-normal'></i>"), 
                 answer, 
                 :remote => true, :title => "Antwort entfernen", method: :delete, data: { confirm: 'Antwort entfernen bestaetigen!!' },
                 :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
-              <br />
-            </div>
-          <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    

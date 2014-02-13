@@ -1,0 +1,302 @@
+#-*- encoding: utf-8 -*-
+@;Multiplechoice;Welche Aussage muss nicht erfuellt sein, damit ein Geraet als Computer bezeichnet werden kann
+0;Verarbeitung von Daten gemaess einer Folge von automatisch ausgefuehrten Instruktionen
+0;Programme erlauben Entscheidungen und Wiederholungen
+0;Programme können geändert oder ausgetauscht werden
+5;Benutzt X-Server zur Ausgabe
+@;Multiplechoice;Welche beiden Bestandteile machen die Hardware eines Computers aus?
+0;Ein- und Ausgabegeräte
+5;Zentraleinheit und Peripherie
+0;Eingabegeräte und Peripherie
+0;Zentraleinheit und Ausgabegeräte
+@;Multiplechoice;Welches der folgenden Elemente ist kein Bestandteil der Zentraleinheit?
+0;CPU
+0;BIOS
+5;Ausgabegeräte
+0;Chipsatz
+@;Multiplechoice;Nach welchem Prinzip arbeiten Computer?
+0;ADAM-Prinzip
+5;EVA-Prinzip
+0;NOAH-Prinzip
+0;MOSES-Prinzip
+@;Multiplechoice;Wie hieß das Betriebssystem, das die Entwicklung von UNIX inspirierte?
+0;TIMICS
+5;MULTICS
+0;COMPLICS
+0;ULTRICS
+@;Multiplechoice;Welche Prgrammiersprache wurde 1971 zur Neuimplementierung von UNIX entwickelt?
+0;Pascal
+0;BASIC
+5;C
+0;SmallTalk
+@;Multiplechoice;An welcher Universität wurde UNIX weiterentwickelt?
+0;Massachusetts Institute of Technology
+5;University of California, Berkely
+0;University of Illinois
+0;Harvard
+@;Multiplechoice;Was ist POSIX?
+0;Eine UNIX-Variante
+0;Eine Programmiersprache
+5;Der kleinste gemeinsame Nenner aller UNIX-Systeme
+0;Eine jährliche UNIX-Entwicklerkonferenz in San Francisco
+@;Multiplechoice;Welches Betriebssystem gilt als das erste echte PC-Betriebssystem?
+0;Windows
+0;Linux
+5;CP/M
+0;MS-DOS
+@;Multiplechoice;Was ist eine GUI?
+5;Graphical User Interface (Grafische Benutzeroberfläche)
+0;Generic UNIX Interface (UNIX-Standard-Systemschnittstelle)
+0;Globally Unique Identity (Weltweit einmalige Registriernummer)
+0;Gate Undefined Issue (Sicherheitslücke in Betriebssystemen)
+@;Multiplechoice;Wofür steht die Abkürzung GNU?
+0;Georgia Newton University
+5;GNU's Not UNIX
+0;Graphical Network Usage
+0;Global Networking Union
+@;Multiplechoice;Welche der folgenden Aussagen über den Kernel trifft zu?
+0;Monolithische Kernel sind schneller als Mikrokernel
+0;Alle modernen Kernel sind Mikrokernel
+5;Der Kernel führt die Prozess- und Speicherverwaltung durch
+0;Der Kernel stellt die grafische Benutzeroberfläche bereit
+@;Multiplechoice;Was bedeutet "Bootstrapping" beim Betriebssytem?
+0;Kontrolle des Bootvorgangs eines PCs über das Netzwerk
+0;Installation eines Gerätetreibers
+0;Im Hintergrund laufende Programme während des Bootvorgangs
+5;Anderes Wort für das Booten des Betriebssystems
+@;Multiplechoice;Welche Aussage über die Betriebsmodi eines Betriebssystems trifft zu?
+0;Es gibt vier verschiedene Betriebsmodi
+0;Prozesse im Kernelmodus können jederzeit unterbrochen werden
+0;Prozesse im Benutzermodus genießen einen stärkeren Zugriffsschutz
+5;Prozesse im Kernelmodus haben Priorität
+@;Multiplechoice;Was ist kein Bestandteil einer Speicheradresse der Memory Management Unit (MMU) eines Intel-Prozessors?
+0;Offset
+0;Page Directory
+0;Page Table
+5;Page File
+@;Multiplechoice;Was ist kein typisches Verzeichnis im UNIX-Verzeichnisbaum?
+0;/bin
+0;/usr
+5;/usw
+0;/etc
+@;Multiplechoice;Wie lautet der relative Pfad, um von /home/user1/test/ aus die Datei /home/user2/hallo.txt anzusprechen?
+0;../user2/hallo.txt
+0;../../hallo.txt
+0;user2/hallo.txt
+5;../../user2/hallo.txt
+@;Multiplechoice;Für welches Verzeichnis im UNIX-Verzeichnisbaum steht die Abkürzung ~ ?
+0;das Systemverzeichnis
+5;das Home-Verzeichnis des aktuellen Benutzers
+0;das Wurzelverzeichnis
+0;das Verzeichnis /usr/sbin
+@;Multiplechoice;Welche Aussage über Symlinks im UNIX-Dateisystem ist zutreffend?
+0;Wird der letzte Symlink gelöscht, der auf eine inode zeigt, dann wird die entsprechende Datei gelöscht
+0;Ein Symlink verweist auf eine inode
+5;Ein Symlink verweist auf einen Verzeichniseintrag
+0;Symlinks können nur auf Dateien auf demselben physikalischen Datenträger verweisen
+@;Multiplechoice;Was geschieht, wenn unter UNIX "ls -l > verzeichnis.txt" eingegeben wird?
+0;Der Befehl ls liest seine Optionen aus der Datei verzeichnis.txt
+0;Es werden nur Dateien angezeigt, deren Dateinamen im Alphabet hinter verzeichnis.txt liegen
+5;Die Ausgabe des Befehls ls wird in die Datei verzeichnis.txt umgeleitet
+0;Der Inhalt der Datei verzeichnis.txt wird zeilenweise aufgelistet
+@;Multiplechoice;Welches Zeichen oder welche Zeichenfolge verwenden UNIX-Textdateien als Zeilenumbruch?
+0;CR (ASCII-Code 13)
+0;LF+CR (ASCII-Codes 10+13)
+5;LF (ASCII-Code 10)
+0;CR+LF (ASCII-Codes 13+10)
+@;Multiplechoice;Was zaehlt nicht zu den Merkmalen von Firmware
+0;Ist auf der Hauptplatine des Computers gespeichert
+0;Versetzt den Computer beim Einschalten in einen bestimmten Zustand
+0;ermöglicht das Starten des Betriebssystems
+5;alle Aussagen charakterisieren Firmware
+@;Multiplechoice;Welche Eigenschaft beschreibt am besten ein multiuserfaehiges Betriebssystem:
+0;hat eine grafische Bedienoberfläche
+0;alles ist eine Datei 
+5;ermöglicht das gleichzeitige Arbeiten mehrerer Benutzer
+0;ermöglicht vielen Benutzern das Arbeiten
+@;Multiplechoice;Welches Merkmal charakterisiert am wenigsten die wesentlichen Funktionen eines Betriebsystems
+0;Verwaltet die Ressourcen
+5;Ermoeglicht grafischen Output
+0;Sorgt dafür dass Programme gestartet und beendet werden können
+0;Enthält eine Benutzerschnittstelle
+0;Regelt die Netzwerkfähigkeit auf einer elementaren Ebene
+@;Multiplechoice;Der erste Linux-Kernel wurde von folgender Person geschrieben:
+0;Ken Thompson
+0;Bill Gates
+0;Steve Balmer
+5;Linus Torvalds
+@;Multiplechoice;Linux gibt es seit
+0;1969
+0;1970
+5;1991
+0;1993
+@;Multiplechoice;Welche der folgenden Aussagen ist nicht korrekt?
+0;Was man allgemein als Linux bezeichnet, ist nicht Linux, sondern der Linux-Kernel plus GNU?
+0;Minux ist ein Unix-ähnliches Betriebssystem.
+5;Shareware ist Open Source.
+0;Linux basiert auf Unix.
+@;Multiplechoice;Welchem Betriebssystem ist Linux ähnlich?
+0;DOS
+0;Windows NT
+5;Unix
+@;Multiplechoice;Was wurde von Linux Torvalds entwickelt?
+5;Linux-Kernel
+0;Linux als Ganzes
+0;Unix
+0;MS-DOS
+@;Multiplechoice;Von wem wurde die erste Version von Unix geschrieben?
+0;Richard Stallman
+5;Ken Thompson
+0;Dennis M. Ritchie
+0;Brian W. Kernighan
+@;Multiplechoice;In welchem Jahr entstand die erste Version von Unix?
+5;1969
+0;1970
+0;1991
+0;1993
+@;Multiplechoice;Was versteht man unter "The EPOCHE" im Linux/Unix-Umfeld?
+5;Der Beginn der Unix-Zeitzählung.
+0;Der Tag der ersten Veröffentlichung eines Unix-Systems.
+0;Die Zeit, in der der erste Linux-Kernel entwickelt wurde.
+@;Multiplechoice;Wann beginnt die offzielle Unixzeit?
+0;1. August 1969
+5;1. Januar 1970
+0;1. Januar 1969
+0;1. Januar 1991
+@;Multiplechoice;Die erste X-Oberfläche gibt es in Linux seit:
+0;Von Anfang an
+0;1999
+5;1992
+0;2003
+@;Multiplechoice;Welche der folgenden Aussagen stehen nicht im Einklang mit der Linux bzw. Unix-Philosophie?
+0;klein aber fein
+5;Programme sollten nach Möglichkeit kompativel zu Microsoft-Betriebssystemen sein
+0;Portabilität ist wichtiger als Effizienz
+0;Schweigen ist Gold
+0;Jedes Programm ist ein Filter
+@;Multiplechoice;Welche Aussage stimmt nicht? Freie Software / OpenSource-Software ist Sofware, 
+0;die in menschenlesbarer Form vorliegt.
+0;die beliebig oft kopiert, verbreitet und genutzt werden darf.
+5;die zunächst kostenlos ist. Zahlen muss man, wenn die SW regelmäßig nutzt.
+0;die verändert und in veränderter Form weitergegeben werden darf.
+@;Multiplechoice;Was bedeutet GNU?
+0;General Public License
+5;Gnu is not Unix
+0;Generally not Unix
+@;Multiplechoice;Von wem wurde das GNU-Projekt gegründet?
+0;Linux Torvalds
+0;Richard Stallman gründete zusammen mit Linux Torvalds das GNU-Projekt
+5;Richard Stallman
+0;AT&T
+@;Multiplechoice;Richard Stallman ist nicht der Begründer
+0;der Open-Source-Bewegung
+0;der Freie-Software-Bewegung
+0;der Free Software Foundation
+0;des GNU-Projektes
+5;von Red Hat
+@;Multiplechoice;Unix hieß ursprünglich
+5;Unics
+0;Multics
+0;DR-DOS
+0;SINIX
+@;Multiplechoice;Wann wurde Linux unter die GNU GPL gestellt?
+0;Von Anfang an
+0;1991
+5;1992
+0;2000
+@;Multiplechoice;Welcher Entwickler hat entscheidenden Anteil am Entstehen von Unix
+0;Linus Torvald
+0;Andrew Tannenbaum
+5;Dennis Ritchie
+0;Richard Stallman
+@;Multiplechoice;Welcher Entwickler hat entscheidenden Anteil am Entstehen von Linux
+5;Linus Torvald
+0;Andrew Tannenbaum
+0;Dennis Ritchie
+0;Richard Stallman
+@;Multiplechoice;Welcher Entwickler hat entscheidenden Anteil am Entstehen von Minix
+0;Linus Torvald
+5;Andrew Tannenbaum
+0;Dennis Ritchie
+0;Richard Stallman
+@;Multiplechoice;Welche Aussage stimmt fuer die Entstehung von Unix
+0;Unix wurde von Andrew S. Tanenbaum an der Uni Amsterdam für Unterrichtszwecke geschrieben.
+0;Unix wurde Ender der 70er von Studenten in Berkley auf die Vax transferiert.
+5;Unix war ein HobbyProjekt von Ken Thompson und Dennis Ritchie, Entwickler bei den Bell Laboratories (AT&T).
+0;Unix wurde als Terminalemulator fuer einen 386er PC entwickelt.
+0;Keine der Aussagen trifft zu
+@;Multiplechoice;Welches Aussage charakterisiert den Zusammenhang zwischen BSD und Unix
+0;Unix wurde von Andrew S. Tanenbaum an der Uni Amsterdam für Unterrichtszwecke geschrieben.
+5;Unix wurde Ender der 70er von Studenten in Berkley auf die Vax transferiert.
+0;Unix war ein HobbyProjekt von Ken Thompson und Dennis Ritchie, Entwickler bei den Bell Laboratories (AT&T).
+0;Unix wurde als Terminalemulator fuer einen 386er PC entwickelt.
+0;Keine der Aussagen trifft zu
+@;Multiplechoice;Welche Aussage charakterisiert den Zusammenhang von Unix und Minix
+5;Minix wurde von Andrew S. Tanenbaum an der Uni Amsterdam für Unterrichtszwecke geschrieben.
+0;Minix wurde Ender der 70er von Studenten in Berkley auf die Vax transferiert.
+0;Minix war ein HobbyProjekt von Ken Thompson und Dennis Ritchie, Entwickler bei den Bell Laboratories (AT&T).
+0;Minix wurde als Terminalemulator fuer einen 386er PC entwickelt.
+0;Keine der Aussagen trifft zu
+@;Multiplechoice;Welche Aussage ist falsch. Bei Linux gilt grundsätzlich ... 
+0;Alles ist eine Datei, z.B. die PCI-Geräte des Computers in der Datei/proc/pci 
+5;Kleine, spezialisierte Programme.Ein Programm erledigt nur eine Aufgabe, aber die perfekt: less kann nur Ordnerinhalte anzeigen
+0;Vermeidung von Redundanz: wenn ein Programm eine Aufgabe erfolgreich erledigt hat, gibt es keine Ausgabe: touch datei.
+@;Multiplechoice;Urheberrecht bedeutet nicht:
+0;Der Urheber eines Werks hat als einziger das Verfügungsrecht über das Erzeugnis
+5;Der Urheber ist verpflichtet 
+@;Multiplechoice;Welches Aussage charakterisiert die Softwareproduktion in den 60er und 70er Jahren am Besten
+5;Software wurde nicht verkauft, sondern war Bestandteil der Hardware
+0;Programme kopieren und zu tauschen war selbstverständlich
+0;Software war unbezahlbar teuer
+@;Multiplechoice;Welcher Grund hat am Entstehen des GNU-Systems keinen Anteil
+0;Software wurde in den 70ern und 80ern zur Ware
+0;Der Quellcode des gekauften Produktes war nicht mehr einsehbar
+5;Linus Torvald wollte Linux eine Basis in der Community geben
+0;Richard M.Stallman wollte ein System implementieren, das auf der Kultur des Teilens basiert
+@;Multiplechoice;Welches Merkmal trifft für freie Software im Sinne des GNU-Systems nicht zu
+0;das Programm muss für jeden beliebigen Zweck benutzt werden dürfen
+0;der Quellcode muss einsehbar und veränderbar sein
+5;die Arbeit des Programmierers soll geschützt werden
+0;das veränderte Programm muss veröffentlicht und  weitergegeben werden können
+@;Multiplechoice;Auf der Basis von OpenSourceSoftware kann man kein Geld verdienen mit ...
+0;Training
+0;Dokumentation
+0;Kundenspezifische Weiterentwicklung und Anpassung
+5;Mit allen genannten Tätigkeiten kann eine Firma Geld verdienen
+@;Multiplechoice;Wozu ist man verpflichtet, wenn man unter der GPL (General Public License) veröffentlichte Software weiterentwickelt
+0;die eigene Software unter der GPL veröffentlichen
+5;den Quellcode verschlüsseln
+@;Multiplechoice;Welches Lizenzmodelle ist nicht im Umfeld von OpenSource
+0;Apache-Lizenz
+0;Mozilla Public Lizenz
+5;Eula
+0;BSD Lizenz
+@;Multiplechoice;Welches Merkmal gilt nicht für alle Linux-Distributionen 
+0;Enthalten neben dem betriebssystem eine komplette Softwareumgebung
+0;Arbeiten mit der Bash als Shell
+5;Bieten eine grafische Benutzeroberfläche an
+@;Multiplechoice;Welche Distribution basiert auf der Paketverwaltung DEB
+0;Red Hat
+0;Suse
+5;Debian
+@;Multiplechoice;Welche Distribution wird von einer nicht firmengebundenen Community gepflegt
+0;Red Hat
+0;Suse
+5;Debian
+@;Multiplechoice;Welche Distribution ist auf Server spezialisiert?
+5;Red Hat
+0;Suse
+0;Debian
+@;Multiplechoice;Welche Zuordnung von Paketverwaltungen und Distribution trifft zu:
+0;RPM (Suse, RedHat, Ubuntu)
+5;DEB (Debian, ubuntu)
+0;DEB (Debian, Arch-Linux)
+@;Multiplechoice;Welche Aussage zum Thema Kernel ist falsch:
+0;Der Kernel bildet die hardwareabstrahierende Schicht (Hardwareabstraktionsschicht), das heißt, er stellt der auf dieser Basis aufsetzenden Software eine einheitliche Schnittstelle (API) zur Verfügung, die unabhängig von der Rechnerarchitektur ist.
+0; Der modulare Aufbau ds Kernel ermöglicht es, im laufenden Betrieb Komponenten hinzu zu fügen und zu entfernen 
+5;Beide Aussagen sind korrekt
+@;Multiplechoice;Welche Zuordnung stimmt für grafische Arbeitsumgebungen
+0;Gnome,LXDE, KDE vollwertig
+5;Gnome + KDE vollwertig
+0;KDE leichtgewichtig
+0;XFCE vollwertig

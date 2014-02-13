@@ -1,16 +1,25 @@
+<div data-alert class="alert-box info radius">
+<%= link_to raw("<i class='fi-plus dark-blue icon-normal'></i> Neue Frage hinzufügen"), new_question_path(:testtype_id => @testtype.id), 
+              :remote => true, 
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"', 
+              title: "Eine neue Frage zum Test hinzufügen." %>
+  <a href="#" class="close">&times;</a>
+</div>
+
 <h3>Fragen von: <%= @testtype.title %> <span class="small-font" id="sum_points">(<%= @testtype.sum_points %> Punkte gesamt.)</span></h3>
 <div id="window_modal" class="reveal-modal small" data-reveal></div>
 
 <table class="datatable">
   <thead>
-    <th align:'center'><%= link_to raw("<i class='fi-plus dark-blue icon-normal'></i>"), new_question_path(:testtype_id => @testtype.id), 
-              :remote => true, 
-              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"', 
-              title: "Eine neue Frage zum Test hinzufügen." %></th>
     <th>Titel</th>
     <th>Category</th>
-    <th>Antwort</th>
+    <th>R.</th>
     <th>P.</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    
   </thead>
   <tbody>
     <% @questions.each do |question| %>

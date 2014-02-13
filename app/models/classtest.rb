@@ -11,7 +11,7 @@ class Classtest < ActiveRecord::Base
 
   CATEGORIES = %w(Multiplechoice Text Mixed)
 
-
+  ICON_STATES = {"new" => 'lock', "open" => "unlock", "canceled" => 'lock', 'shipped' => 'download', 'closed' => 'archive'}
   STATES = %w[new open canceled shipped closed]
   delegate :new?, :open?, :canceled?, :shipped?, :closed?, to: :current_state
 

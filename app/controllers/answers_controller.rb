@@ -6,7 +6,7 @@ class AnswersController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @answers }
+      format.js
     end
   end
 

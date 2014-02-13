@@ -18,6 +18,10 @@ class QuestionsController < ApplicationController
     render "destroy"
   end
 
+  def answers
+    @answers = Answer.where(:question_id => params['id'])
+  end
+
   def index
     @questions = Question.all
 

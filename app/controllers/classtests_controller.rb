@@ -5,7 +5,7 @@ class ClasstestsController < ApplicationController
     test.change(params[:state])
     @classtests = Classtest.all
     respond_to do |format|
-      format.html {redirect_to tests_url}
+      format.html {redirect_to classtests_url}
       format.json { render json: @classtests }
     end    
   end

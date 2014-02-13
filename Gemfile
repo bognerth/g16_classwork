@@ -25,6 +25,7 @@ gem 'jquery-ui-rails'
 gem 'jquery-datatables-rails', git: 'git://github.com/rweng/jquery-datatables-rails.git'
 gem 'best_in_place'
 gem 'simple_form'
+#gem 'simple_form_fancy_uploads' ??Versionskonflikt
 
 gem 'carrierwave'
 gem 'rmagick'
