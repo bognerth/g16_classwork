@@ -1,6 +1,10 @@
 G16Classwork::Application.routes.draw do
   root :to => 'classtests#index'  
-  resources :studentanswers
+  resources :studentanswers do
+    collection do 
+      post 'multiple_choice'
+    end
+  end
 
   resources :answers 
 
@@ -16,7 +20,11 @@ G16Classwork::Application.routes.draw do
 
   resources :testtypes
 
-  resources :studenttests
+  resources :studenttests do
+    member do
+      get 'state'
+    end
+  end
 
   resources :classtests do    
     member do

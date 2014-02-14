@@ -2,8 +2,10 @@ class Studenttest < ActiveRecord::Base
   attr_accessible :end, :points, :start, :student_id, :classtest_id
 
   has_many :events, class_name: "StudenttestEvent"
+  has_many :studentanswers
   belongs_to :classtest
-
+  
+  ICON_STATES = {"new" => 'lock', "started" => "unlock", "closed" => 'lock', 'shipped' => 'download'}
   STATES = %w[new started closed shipped ]
   delegate :new?, :started?, :closed?, :shipped?, to: :current_state
 

@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   def current_user
     if session[:user_id]
       @current_user ||= User.find(session[:user_id])
+      
       unless $redis.hexists(@current_user.login.to_sym, :classwork)
         if params[:lecture]
           lecture = JSON.parse($redis.get("lectures")).find{|l| l['title'] == params[:lecture]}

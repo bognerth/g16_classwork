@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.15'
+#gem 'active_rest_client' #benoetigt ruby 2
 gem 'activeresource'
 gem 'pg'
 

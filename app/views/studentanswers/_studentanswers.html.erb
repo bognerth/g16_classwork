@@ -1,0 +1,18 @@
+<% answers = @answers if @answers %>
+
+<%= form_tag "/studentanswer/multiple_choice", :remote => true do |f| %>
+  <%= hidden_field_tag("studenttest_id", ) %>
+
+  <ul class="pricing-table">
+    <li class="title"><%= answers.first.question.title %></li>
+    <li class="description"><%= (answers.first.question.category == 'MehrereAntworten' ? "Es insd mehrere Anworten moeglich." : "Es ist nur eine Antwort moeglich") %></li>
+    <li class="bullet-item">
+      <% answers.each do |answer| %>
+        <p><% check_box_tag("studentanswer[]", answer.id, answer.id) %> &nbsp;<%= answer.question.title %></p>
+      <% end %>
+    </li>
+    <li class="cta-button"><%= submit_tag("Eintragen") %></li>
+  </ul>
+
+<% end %>
+

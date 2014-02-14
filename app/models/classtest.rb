@@ -33,9 +33,7 @@ class Classtest < ActiveRecord::Base
     #raise student_ids.to_yaml
     student_ids.each do |student_id|
       studenttest = Studenttest.create(:classtest_id => self.id, :student_id => student_id) 
-      Question.where(:testtype_id => self.testtype_id).each do |question|
-        Studentanswer.create(:points => 0, :question_id => question.id, :studenttest_id => studenttest.id)
-      end
+      Studentanswer.generate_studentanswers(studenttest.id)
     end
   end
 end

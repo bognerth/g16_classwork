@@ -3,7 +3,7 @@
   <li class="title"><%= @classtest.title %></li>
   <li class="description"><%= @classtest.description %></li>
   <li class="bullet-item">Testtyp: <%= @classtest.testtype.title %></li>
-  <li class="bullet-item">Kurs: <%= JSON.parse($redis.get("lectures")).find{|l| l['id'] == @classtest.lecture_id}['title'] %></li>
+  <li class="bullet-item">Kurs: <%= @lecture.title unless @lecture.blank? %></li>
   <li class="bullet-item">Kategorie: <%= @classtest.category %></li>
   <li class="bullet-item">Dauer: <%= @classtest.duration %></li>
   <li class="cta-button"><%= link_to "Alle Klassenarbeiten", classtests_path, :class => "button" %></li>

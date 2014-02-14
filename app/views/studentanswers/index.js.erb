@@ -1,0 +1,2 @@
+$("#window_modal").html("<%= j(render(:partial => 'studentanswers', :locals => {:answers => @studentanswers}))  unless @studentanswers.empty?  %>");
+$('#window_modal').foundation('reveal', 'open');

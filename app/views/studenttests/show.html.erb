@@ -1,30 +1,41 @@
-<p id="notice"><%= notice %></p>
+<ul class="pricing-table">
+  <li class="title"><%= @studenttest.classtest.title %></li>
 
-<p>
-  <b>Test:</b>
-  <%= @studenttest.test_id %>
-</p>
+  <li class="cta-button"><%= link_to "Test beenden", state_studenttest_path(@studenttest), :class => "button" %></li>
+</ul>
 
-<p>
-  <b>Student:</b>
-  <%= @studenttest.student_id %>
-</p>
+<div id="window_modal" class="reveal-modal small" data-reveal></div>
 
-<p>
-  <b>Start:</b>
-  <%= @studenttest.start %>
-</p>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Typ</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @questions.each do |question| %>
+    <tr>
+      <td><%= question.title %></td>
+      <td><%= question.category %></td>
+      <td>
+        <% if question.category == 'Multiplechoice' || question.category == 'MehrereAntworten' %>
+          <%= link_to(raw("<i class='fi-pencil dark-green icon-big'></i>"), 
+              studentanswers_path(:studenttest_id => @studenttest.id, :question_id => question.id), 
+              :remote => true, :title => "Antworten anzeigen.",
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+        <% else %>
+          <%= link_to(raw("<i class='fi-pencil dark-green icon-big'></i>"), 
+              edit_studentanswer_path(question, :studenttest_id => @studenttest.id, :question_id => question.id), 
+              :remote => true, :title => "Antwort eingeben.",
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+        <% end %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
 
-<p>
-  <b>End:</b>
-  <%= @studenttest.end %>
-</p>
-
-<p>
-  <b>Points:</b>
-  <%= @studenttest.points %>
-</p>
-
-
-<%= link_to 'Edit', edit_studenttest_path(@studenttest) %> |
-<%= link_to 'Back', studenttests_path %>
+<div class="panel callout radius">
+  <h5><%= link_to "Test beenden", state_studenttest_path(@studenttest) %></h5>
+</div>

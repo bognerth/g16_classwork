@@ -1,55 +1,65 @@
-<h3>Tests <%= "fuer #{eval($redis.hget(current_user.login.to_sym, :classwork_lecture))['title']}" unless current_user.admin? %></h3>
+<% if @classtests.blank? %>
+  <div class="panel callout radius">
+    <h3>Keine Tests vorhanden.</h3>
+  </div>
+<% else %>
+  <h3>Tests <%= @title %></h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Category</th>
-      <th>Lecture</th>
-      <th>Duration</th>
-      <th>Status</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-  <% @classtests.each do |classtest| %>
-    <tr>
-      <td><%= classtest.title %></td>
-      <td><%= classtest.description %></td>
-      <td><%= classtest.category %></td>
-      <td><%= classtest.lecture_id %></td>
-      <td><%= classtest.duration %></td>
-      <% if current_user.admin? %>
-        <td>
-          <nobr>
-          <% Classtest::STATES.each do |state| %>
-            <%= classtest.current_state == state ? raw("<i title='#{state}' class='fi-#{Classtest::ICON_STATES[state]} dark-green icon-normal'></i></span>") : link_to(raw("<i class='fi-#{Classtest::ICON_STATES[state]} dark-red icon-normal'></i>"),state_classtest_path(classtest,:state => state), :title => state)  %>  
-          <% end %>
-          </nobr>
-        </td>
-        <td>
-          <nobr>
-            <%= link_to raw("<i class='fi-eye dark-green icon-normal'></i>"), classtest %>
-            <%= link_to raw("<i class='fi-pencil dark-green icon-normal'></i>"), edit_classtest_path(classtest) %>
-            <%= link_to raw("<i class='fi-trash dark-green icon-normal'></i>"), classtest, method: :delete, data: { confirm: 'Are you sure?' } %>
-          </nobr>
-        </td>
-      <% else %>
-        <td>
-          <% if classtest.current_state == 'open' %>
-            <%= link_to(classtest.current_state, classtest_path(classtest,:state => classtest.current_state)) %>
-          <% else %>
-            <%= classtest.current_state %>
-          <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Category</th>
+        <th>Lecture</th>
+        <th>Duration</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @classtests.each do |classtest| %>
+      <tr>
+        <td><%= classtest.title %></td>
+        <td><%= classtest.description %></td>
+        <td><%= classtest.category %></td>
+        <td><%= classtest.lecture_id %></td>
+        <td><%= classtest.duration %></td>
+        <% if current_user.admin? %>
+          <td>
+            <nobr>
+            <% Classtest::STATES.each do |state| %>
+              <%= classtest.current_state == state ? raw("<i title='#{state}' class='fi-#{Classtest::ICON_STATES[state]} dark-green icon-normal'></i></span>") : link_to(raw("<i class='fi-#{Classtest::ICON_STATES[state]} dark-red icon-normal'></i>"),state_classtest_path(classtest,:state => state), :title => state)  %>  
+            <% end %>
+            </nobr>
+          </td>
+          <td>
+            <nobr>
+              <%= link_to raw("<i class='fi-eye dark-green icon-normal'></i>"), classtest %>
+              <%= link_to raw("<i class='fi-pencil dark-green icon-normal'></i>"), edit_classtest_path(classtest) %>
+              <%= link_to raw("<i class='fi-trash dark-green icon-normal'></i>"), classtest, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </nobr>
+          </td>
+        <% else %>
+          <td>
+            <% if classtest.current_state == 'open' %>
+              <%= link_to(classtest.current_state, classtest_path(classtest,:state => classtest.current_state)) %>
+            <% else %>
+              <%= classtest.current_state %>
+            <% end %>
 
-        </td>
-      <% end %>
-    </tr>
-  <% end %>
-</tbody>
-</table>
-<div class="panel callout radius">
-  <h5><%= link_to "Neuen Test anlegen", new_classtest_path %></h5>
-</div>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+<% end %>
+<% if current_user.admin? %>
+  <div class="panel callout radius">
+    <h5><%= link_to "Neuen Test anlegen", new_classtest_path %></h5>
+  </div>
+<% end %>
+
+
 

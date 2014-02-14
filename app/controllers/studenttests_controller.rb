@@ -1,20 +1,34 @@
 class StudenttestsController < ApplicationController
-  # GET /studenttests
-  # GET /studenttests.json
-  def index
-    @studenttests = Studenttest.all
+  def state
+    test = Studenttest.find(params[:id])
+    test.change(params[:state])
+    @classtests = Studenttest.all
+    respond_to do |format|
+      format.html {redirect_to studenttests_url}
+      format.json { render json: @classtests }
+    end    
+  end
 
+  def index
+    if $redis.hget(@current_user.login.to_sym, :classwork_lecture).blank?
+      @studenttests = nil
+    else
+      @classtests = Classtest.where(:lecture_id => eval($redis.hget(@current_user.login.to_sym, :classwork_lecture))['id'])
+      classtest_ids = @classtests.map {|t| t.id}
+      student_id = eval($redis.hget(:current_user, current_user.login.to_sym))["student_id"]
+      @title = eval($redis.hget(current_user.login.to_sym, :classwork_lecture))['title']
+      @studenttests = Studenttest.where(:student_id => student_id, :classtest_id => classtest_ids)
+    end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @studenttests }
     end
   end
 
-  # GET /studenttests/1
-  # GET /studenttests/1.json
   def show
     @studenttest = Studenttest.find(params[:id])
-
+    #@lecture = Lecture.find(@studenttest.lecture_id)
+    @questions = @studenttest.classtest.testtype.questions
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @studenttest }

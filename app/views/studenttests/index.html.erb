@@ -1,31 +1,46 @@
-<h1>Listing studenttests</h1>
-
-<table>
-  <tr>
-    <th>Test</th>
-    <th>Student</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Points</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @studenttests.each do |studenttest| %>
-  <tr>
-    <td><%= studenttest.test_id %></td>
-    <td><%= studenttest.student_id %></td>
-    <td><%= studenttest.start %></td>
-    <td><%= studenttest.end %></td>
-    <td><%= studenttest.points %></td>
-    <td><%= link_to 'Show', studenttest %></td>
-    <td><%= link_to 'Edit', edit_studenttest_path(studenttest) %></td>
-    <td><%= link_to 'Destroy', studenttest, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<h1>Listing studenttests</h1><% if @classtests.blank? %>
+  <div class="panel callout radius">
+    <h3>Keine Tests vorhanden.</h3>
+  </div>
+<% else %>
+  <h3>Tests <%= @title %></h3>
+  <table>
+    <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Beschreibung</th>
+        <th>Dauer</th>
+        <th>Start</th>
+        <th>Ende</th>
+        <th>Punkte</th>
+        <th>Status</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @studenttests.each do |studenttest| %>
+      <tr>
+        <td><%= studenttest.classtest.title %></td>
+        <td><%= studenttest.classtest.description %></td>
+        <td><%= studenttest.classtest.duration %></td>
+        <td><%= studenttest.start %></td>
+        <td><%= studenttest.end %></td>
+        <td><%= studenttest.points %></td>
+        <td>
+          <nobr>
+          <% Studenttest::STATES.each do |state| %>
+            <% icon = studenttest.current_state == state ? "dark-blue" : "dark-red" %>
+            <%= raw("<i title='#{state}' class='fi-#{Studenttest::ICON_STATES[state]} #{icon} icon-normal'></i></span>") %>  
+          <% end %>
+          </nobr>
+        </td>
+        <td>
+          <% if studenttest.classtest.current_state == 'open' %>
+            <%= link_to("Test starten", studenttest_path(studenttest)) %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Studenttest', new_studenttest_path %>

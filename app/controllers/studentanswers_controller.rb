@@ -1,23 +1,24 @@
 class StudentanswersController < ApplicationController
-  # GET /studentanswers
-  # GET /studentanswers.json
-  def index
-    @studentanswers = Studentanswer.all
 
+  def index
+    @studentanswers = Studentanswer.where(:studenttest_id => params[:studenttest_id], :question_id => params[:question_id])
+    if @studentanswers.blank?
+      Studentanswer.generate_studentanswers(params[:studenttest_id])
+    end
+    @studentanswers = Studentanswer.where(:studenttest_id => params[:studenttest_id], :question_id => params[:question_id])
     respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @studentanswers }
+      format.js
     end
   end
+  
+  def multiple_choice
 
-  # GET /studentanswers/1
-  # GET /studentanswers/1.json
+  end
   def show
-    @studentanswer = Studentanswer.find(params[:id])
+    @studentanswer = Studentanswer.where(:studenttest_id => params[:studenttest_id], :question_id => params[:question_id]).first || Studentanswer.new
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @studentanswer }
+      format.js
     end
   end
 
@@ -34,7 +35,8 @@ class StudentanswersController < ApplicationController
 
   # GET /studentanswers/1/edit
   def edit
-    @studentanswer = Studentanswer.find(params[:id])
+    @studentanswer = Studentanswer.where(:studenttest_id => params[:studenttest_id], :question_id => params[:question_id]).first || Studentanswer.create(:studenttest_id => params[:studenttest_id], :question_id => params[:question_id], :points => 0)
+
   end
 
   # POST /studentanswers
@@ -61,10 +63,10 @@ class StudentanswersController < ApplicationController
     respond_to do |format|
       if @studentanswer.update_attributes(params[:studentanswer])
         format.html { redirect_to @studentanswer, notice: 'Studentanswer was successfully updated.' }
-        format.json { head :no_content }
+        format.js
       else
         format.html { render action: "edit" }
-        format.json { render json: @studentanswer.errors, status: :unprocessable_entity }
+        format.js { render json: @studentanswer.errors, status: :unprocessable_entity }
       end
     end
   end

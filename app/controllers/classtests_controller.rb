@@ -13,18 +13,19 @@ class ClasstestsController < ApplicationController
   def index
     if @current_user.admin?
       @classtests = Classtest.all
+      respond_to do |format|
+        format.html # index.html.erb
+        format.json { render json: @classtests }
+      end
     else
-      @classtests = Classtest.where(:lecture_id => eval($redis.hget(@current_user.login.to_sym, :classwork_lecture))['id']) unless $redis.hget(@current_user.login.to_sym, :classwork_lecture).blank?
+      redirect_to studenttests_url(:lecture => params[:lecture])
     end
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @classtests }
-    end
   end
 
   def show
     @classtest = Classtest.find(params[:id])
+    @lecture = Lecture.find(@classtest.lecture_id)
 
     respond_to do |format|
       format.html # show.html.erb

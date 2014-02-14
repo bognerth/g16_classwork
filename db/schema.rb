@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140212071911) do
+ActiveRecord::Schema.define(:version => 20140214121444) do
 
   create_table "answers", :force => true do |t|
     t.text     "title"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20140212071911) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.integer  "question_id"
-    t.string   "order",       :default => "m"
+    t.string   "order",       :default => "o"
   end
 
   create_table "classtest_events", :force => true do |t|
@@ -55,11 +55,11 @@ ActiveRecord::Schema.define(:version => 20140212071911) do
     t.integer  "question_id"
     t.integer  "studenttest_id"
     t.integer  "points",         :default => 0
-    t.string   "title"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "answer_id"
     t.text     "result"
+    t.boolean  "selected",       :default => false
   end
 
   create_table "studenttest_events", :force => true do |t|
