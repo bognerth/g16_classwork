@@ -2,7 +2,7 @@ class Studenttest < ActiveRecord::Base
   attr_accessible :end, :points, :start, :student_id, :classtest_id
 
   has_many :events, class_name: "StudenttestEvent"
-  has_many :studentanswers
+  has_many :studentanswers, :dependent => :destroy
   belongs_to :classtest
   
   ICON_STATES = {"new" => 'lock', "started" => "unlock", "closed" => 'lock', 'shipped' => 'download'}

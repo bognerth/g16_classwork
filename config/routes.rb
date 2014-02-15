@@ -29,6 +29,8 @@ G16Classwork::Application.routes.draw do
   resources :classtests do    
     member do
       get 'state'
+      get 'students'
+      get 'addstudents'
     end
   end
 

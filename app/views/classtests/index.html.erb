@@ -35,6 +35,7 @@
           </td>
           <td>
             <nobr>
+              <%= link_to raw("<i class='fi-torsos dark-green icon-normal'></i>"), students_classtest_path(classtest) %>
               <%= link_to raw("<i class='fi-eye dark-green icon-normal'></i>"), classtest %>
               <%= link_to raw("<i class='fi-pencil dark-green icon-normal'></i>"), edit_classtest_path(classtest) %>
               <%= link_to raw("<i class='fi-trash dark-green icon-normal'></i>"), classtest, method: :delete, data: { confirm: 'Are you sure?' } %>

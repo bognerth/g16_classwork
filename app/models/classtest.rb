@@ -28,11 +28,18 @@ class Classtest < ActiveRecord::Base
     events.create! state: state
   end
 
+  def search_for_missing_studenttests
+    studenttests = Studenttest.where(:classtest_id => self.id)
+    studenttest_student_ids = studenttests.map {|s| s.student_id }
+    ls_ids = $redis.smembers "students_#{self.lecture_id}"
+    lecture_student_ids = ls_ids.map {|id| id.to_i}
+    student_without_test = lecture_student_ids - studenttest_student_ids
+  end
+
   def initialize_studenttests
     student_ids = $redis.smembers "students_#{self.lecture_id}"
-    #raise student_ids.to_yaml
     student_ids.each do |student_id|
-      studenttest = Studenttest.create(:classtest_id => self.id, :student_id => student_id) 
+      studenttest = Studenttest.create(:classtest_id => self.id, :student_id => student_id.to_s) 
       Studentanswer.generate_studentanswers(studenttest.id)
     end
   end

@@ -1,5 +1,25 @@
 class ClasstestsController < ApplicationController
 
+  def students
+    @classtest = Classtest.find(params[:id])
+    @studenttests = Studenttest.where(:classtest_id => @classtest.id)
+    @student_without_test = @classtest.search_for_missing_studenttests
+    respond_to do |format|
+      format.html
+      format.json { render json: @classtests }
+    end
+  end
+
+  def addstudents
+    classtest = Classtest.find(params[:id])
+    student_without_test = classtest.search_for_missing_studenttests
+    student_without_test.each do |student_id|
+      studenttest = Studenttest.create(:classtest_id => classtest.id, :student_id => student_id.to_s) 
+      Studentanswer.generate_studentanswers(studenttest.id)
+    end
+    redirect_to students_classtest_url(classtest.id)
+  end
+
   def state
     test = Classtest.find(params[:id])
     test.change(params[:state])
@@ -25,7 +45,7 @@ class ClasstestsController < ApplicationController
 
   def show
     @classtest = Classtest.find(params[:id])
-    @lecture = Lecture.find(@classtest.lecture_id)
+    @lecture = Lecture.find(9) #@classtest.lecture_id)
 
     respond_to do |format|
       format.html # show.html.erb

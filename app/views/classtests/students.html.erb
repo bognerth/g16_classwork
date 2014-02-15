@@ -1,0 +1,31 @@
+
+<ul class="pricing-table">
+  <li class="title">Existierende Studenttests: <%= @classtest.title %></li>
+  <li class="description"><%= @classtest.title %></li>
+  <li class="bullet-item">
+    <ul class="no-bullet">
+      <% @studenttests.each do |studenttest| %>
+        <li><%= studenttest.student_id %></li>
+      <% end %>
+    </ul>
+  </li>
+</ul>
+
+<hr />
+
+<ul class="pricing-table">
+  <li class="title">Fehlende Studenttests: <%= @classtest.title %></li>
+  <li class="description"><%= @classtest.title %></li>
+  <% if @student_without_test.empty? %>
+    <li class="bullet-item"><h5>Allen Kursteilnehmern ist ein test zugeordnet</h5></li>
+  <% else %>
+    <li class="bullet-item"> 
+      <ul class="no-bullet">
+        <% @student_without_test.each do |id| %>
+          <li><%= id %></li>
+        <% end %>
+      </ul>
+    </li>
+    <li class="cta-button"><%= link_to 'Fehlende Tests anlegen', addstudents_classtest_path(@classtest),  :class => "button" %></li>
+  <% end %>
+</ul>
