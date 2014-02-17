@@ -12,8 +12,22 @@ class StudentanswersController < ApplicationController
   end
   
   def multiple_choice
-
+    @error = nil
+    if params[:studentanswer] && params[:studentanswer].count == 1
+      studentanswer = Studentanswer.find(params[:studentanswer][0])
+      Studentanswer.where(:studenttest_id => studentanswer.studenttest_id, :question_id => studentanswer.question_id).each do |sa|
+        sa.update_attributes(:selected => false, :points => 0)
+      end
+      points = studentanswer.answer.points == 0 ? 0 : studentanswer.question.points
+      studentanswer.update_attributes(:selected => true, :points => points)
+    else
+      @error = "Es muss mindestens eine Antwort, aber es darf auch nur eine Antwort angeklickt sein."
+    end
+    respond_to do |format|
+      format.js
+    end
   end
+
   def show
     @studentanswer = Studentanswer.where(:studenttest_id => params[:studenttest_id], :question_id => params[:question_id]).first || Studentanswer.new
 

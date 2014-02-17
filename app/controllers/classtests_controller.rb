@@ -31,13 +31,14 @@ class ClasstestsController < ApplicationController
   end
 
   def index
-    if @current_user.admin?
+    if request.format == "application/json" || @current_user.admin?
       @classtests = Classtest.all
       respond_to do |format|
         format.html # index.html.erb
         format.json { render json: @classtests }
       end
     else
+      #http://localhost:3001/studenttests?lecture=KuA_Fit3h
       redirect_to studenttests_url(:lecture => params[:lecture])
     end
 
@@ -76,6 +77,8 @@ class ClasstestsController < ApplicationController
 
     respond_to do |format|
       if @classtest.save
+        #UPDATE fuer Hauptseite VALUATIONS
+        Valuation.create(:title => @classtest.title, :lecture_id => @classtest.lecture_id, :classtest_id => @classtest.id, :mark_type => 'Klausur')
         format.html { redirect_to @classtest, notice: 'Classtest was successfully created.' }
         format.json { render json: @classtest, status: :created, location: @classtest }
       else

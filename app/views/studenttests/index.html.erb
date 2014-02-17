@@ -36,7 +36,15 @@
         </td>
         <td>
           <% if studenttest.classtest.current_state == 'open' %>
-            <%= link_to("Test starten", studenttest_path(studenttest)) %>
+            <% if studenttest.current_state == 'new' %>
+              <%= link_to("Test starten", studenttest_path(studenttest)) %>
+            <% elsif studenttest.current_state == 'started'%>
+              <%= link_to("Test fortsetzen", studenttest_path(studenttest)) %>
+            <% elsif studenttest.current_state == 'closed'%>
+              Der Test kann nicht bearbeitet werden.
+            <% elsif studenttest.current_state == 'shipped'%>
+              <%= link_to("Ergebnis", result_studenttest_path(studenttest), :format => 'pdf') %>
+            <% end %>
           <% end %>
         </td>
       </tr>

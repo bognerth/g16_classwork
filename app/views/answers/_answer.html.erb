@@ -1,28 +1,37 @@
-    <% answers = @answers if @answers %>
-    
-    <h3>Antworten auf die Frage: <%= answers.first.question.title %></h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Titel</th>
-          <th>Punkte</th>
-          <th>Order</th>
-          <th>Entfernen</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% answers.each do |answer| %>
-          <tr id="answer_<%= answer.id %>">
-            <td><%= best_in_place answer, :title %></td>
-            <td><%= best_in_place answer, :points %></td>
-            <td><%= best_in_place answer, :order %></td>
-            <td><%= link_to(raw("<i class='fi-trash dark-red icon-normal'></i>"), 
-                answer, 
-                :remote => true, :title => "Antwort entfernen", method: :delete, data: { confirm: 'Antwort entfernen bestaetigen!!' },
-                :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
-            </td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<% answers = @answers if @answers %>
+
+<h5>Antworten auf die Frage: <%= answers.first.question.title %></h5>
+<table>
+  <thead>
+    <tr>
+      <th>Titel</th>
+      <th>Punkte</th>
+      <th>Order</th>
+      <th>Entfernen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% answers.each do |answer| %>
+      <tr id="answer_<%= answer.id %>">
+        <td><%= best_in_place answer, :title %></td>
+        <td><%= best_in_place answer, :points %></td>
+        <td><%= best_in_place answer, :order %></td>
+        <td><%= link_to(raw("<i class='fi-trash dark-red icon-normal'></i>"), 
+            answer, 
+            :remote => true, :title => "Antwort entfernen", method: :delete, data: { confirm: 'Antwort entfernen bestaetigen!!' },
+            :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"') %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+  <div class="button-bar text-right">
+    <ul class="button-group radius">
+      <li><a href="#" onclick="$('a.close-reveal-modal').trigger('click');" class="small button alert">Abbrechen</a></li>
+      <!--<li><a href="#" class="small button success">Weiter</a></li>-->
+    </ul>
+  </div> 
+
+  <a class="close-reveal-modal">&#215;</a>
     

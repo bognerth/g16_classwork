@@ -9,6 +9,19 @@ class StudenttestsController < ApplicationController
     end    
   end
 
+  def finish
+    @studenttest = Studenttest.find(params[:id])
+    @studenttest.change("closed")
+    @studenttest.update_attributes(:end => DateTime.now, :points => @studenttest.sum_points)
+    valuation = Valuation.find(:all, :params => {:classtest_id => 6})
+    Studentvaluation.create(:points => @studenttest.points, :studenttest_id => @studenttest.id, :student_id => @studenttest.student_id, :valuation_id => valuation[0].id, )
+    redirect_to studenttests_url, :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
+  end
+
+  def result
+    #Ausgabe in pdf 
+  end
+
   def index
     if $redis.hget(@current_user.login.to_sym, :classwork_lecture).blank?
       @studenttests = nil
@@ -27,11 +40,22 @@ class StudenttestsController < ApplicationController
 
   def show
     @studenttest = Studenttest.find(params[:id])
-    #@lecture = Lecture.find(@studenttest.lecture_id)
-    @questions = @studenttest.classtest.testtype.questions
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @studenttest }
+    if @studenttest.current_state == 'closed' || @studenttest.current_state == 'shipped'
+      redirect_to studenttests_url, :notice => "Der Status des angeforderten Tests laesst keine Bearbeitung zu."
+    else
+      if @studenttest.current_state == 'new'
+        @studenttest.change("started")
+        @studenttest.update_attributes(:start => DateTime.now, :end => nil, :points => 0)
+        Studentanswer.where(:studenttest_id => @studenttest.id).each do |sa|
+          sa.update_attributes(:selected => false, :points => 0)
+        end
+      end
+      #@lecture = Lecture.find(@studenttest.lecture_id)
+      @questions = @studenttest.classtest.testtype.questions
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: @studenttest }
+      end
     end
   end
 

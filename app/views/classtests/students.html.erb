@@ -5,7 +5,7 @@
   <li class="bullet-item">
     <ul class="no-bullet">
       <% @studenttests.each do |studenttest| %>
-        <li><%= studenttest.student_id %></li>
+        <li><%= $redis.get "userstudent_#{studenttest.student_id}" %></li>
       <% end %>
     </ul>
   </li>
@@ -22,7 +22,7 @@
     <li class="bullet-item"> 
       <ul class="no-bullet">
         <% @student_without_test.each do |id| %>
-          <li><%= id %></li>
+          <li><%= $redis.get "userstudent_#{id}" %></li>
         <% end %>
       </ul>
     </li>

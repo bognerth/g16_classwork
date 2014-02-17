@@ -5,6 +5,10 @@ class Studenttest < ActiveRecord::Base
   has_many :studentanswers, :dependent => :destroy
   belongs_to :classtest
   
+  def sum_points
+    studentanswers.sum(:points)
+  end
+
   ICON_STATES = {"new" => 'lock', "started" => "unlock", "closed" => 'lock', 'shipped' => 'download'}
   STATES = %w[new started closed shipped ]
   delegate :new?, :started?, :closed?, :shipped?, to: :current_state

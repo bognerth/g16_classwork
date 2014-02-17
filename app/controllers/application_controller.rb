@@ -19,9 +19,11 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize
-    if @current_user.nil?
-      #Rails.logger.debug "Current_user: #{@current_user.inspect}Dokumente Autorisierung fehlgeschlagen. Loggen Sie sich mit der G16-Kennung und Passwort ein. User: #{session[:user_id]}" 
-      redirect_to ENV['ROOT_DOMAIN'], alert: "Autorisierung fehlgeschlagen. Meckern Sie mit dem Programmierer." 
+    unless request.format == "application/json"
+      if @current_user.nil?
+        #Rails.logger.debug "Current_user: #{@current_user.inspect}Dokumente Autorisierung fehlgeschlagen. Loggen Sie sich mit der G16-Kennung und Passwort ein. User: #{session[:user_id]}" 
+        redirect_to ENV['ROOT_DOMAIN'], alert: "Autorisierung fehlgeschlagen. Meckern Sie mit dem Programmierer." 
+      end
     end
   end
 end
