@@ -1,0 +1,38 @@
+<ul class="pricing-table">
+  <li class="title"><%= @studenttest.classtest.title %></li>
+  <li class="bullet-item">Erreichte Punktzahl: <%= @studenttest.points %> von 100</li>
+  <li class="cta-button"><%= link_to "Test als PDF", result_studenttest_path(@studenttest,:format => 'pdf'), :class => "button" %></li>
+</ul>
+
+<table class="datatable">
+  <thead>
+    <tr>
+      <th>Title</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @questions.each do |question| %>
+    <tr>
+      <td>
+        <%= question.title %><br />
+        <table width="100%">
+          <% @studenttest.studentanswers.where(:question_id => question.id).each do |sa| %>
+            <tr>
+              <td width="5%"><%= raw('<i class="fi-like dark-green icon-normal"></i>') if sa.answer.points > 0 %></td>
+              <td width="5%"><%= raw('<i class="fi-checkbox dark-green icon-normal"></i>') if sa.selected %></td>
+              <td><%= sa.answer.title %></td>
+            </tr>
+          <% end %>
+        </table>
+      </td>
+      <td>
+
+      </td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<div class="panel callout radius">
+  <h5><%= link_to "Test als PDF", result_studenttest_path(@studenttest,:format => 'pdf') %></h5>
+</div>

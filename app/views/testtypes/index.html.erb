@@ -22,6 +22,8 @@
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Testtype', new_testtype_path %>
+<% if current_user.admin? %>
+  <div class="panel callout radius">
+    <h5><%= link_to "Neuen Test anlegen", new_testtype_path %></h5>
+  </div>
+<% end %>

@@ -46,7 +46,7 @@ class ClasstestsController < ApplicationController
 
   def show
     @classtest = Classtest.find(params[:id])
-    @lecture = Lecture.find(9) #@classtest.lecture_id)
+    @lecture = Lecture.find(@classtest.lecture_id)
 
     respond_to do |format|
       format.html # show.html.erb

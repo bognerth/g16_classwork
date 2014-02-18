@@ -27,6 +27,9 @@ G16Classwork::Application.routes.draw do
       get 'finish'
       get 'result'
     end
+    collection do
+      get 'get_for_valuation'
+    end
   end
 
   resources :classtests do    

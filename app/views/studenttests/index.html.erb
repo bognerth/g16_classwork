@@ -1,9 +1,9 @@
-<h1>Listing studenttests</h1><% if @classtests.blank? %>
+<% if @classtests.blank? %>
   <div class="panel callout radius">
     <h3>Keine Tests vorhanden.</h3>
   </div>
 <% else %>
-  <h3>Tests <%= @title %></h3>
+  <h3>Tests fuer Kurs: <%= @lecture.title %></h3>
   <table>
     <thead>
       <tr>
@@ -42,9 +42,9 @@
               <%= link_to("Test fortsetzen", studenttest_path(studenttest)) %>
             <% elsif studenttest.current_state == 'closed'%>
               Der Test kann nicht bearbeitet werden.
-            <% elsif studenttest.current_state == 'shipped'%>
-              <%= link_to("Ergebnis", result_studenttest_path(studenttest), :format => 'pdf') %>
             <% end %>
+          <% elsif studenttest.classtest.current_state == 'shipped'%>
+            <%= link_to("Ergebnis", result_studenttest_path(studenttest)) %>
           <% end %>
         </td>
       </tr>

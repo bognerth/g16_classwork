@@ -9,27 +9,46 @@ class StudenttestsController < ApplicationController
     end    
   end
 
+  def get_for_valuation
+    @studenttest = Studenttest.where(:classtest_id => params[:params][:classtest_id], :student_id => params[:params][:student_id]).first
+    respond_to do |format|
+      format.json { render json: @studenttest }
+    end
+  end
+
   def finish
     @studenttest = Studenttest.find(params[:id])
     @studenttest.change("closed")
     @studenttest.update_attributes(:end => DateTime.now, :points => @studenttest.sum_points)
     valuation = Valuation.find(:all, :params => {:classtest_id => 6})
-    Studentvaluation.create(:points => @studenttest.points, :studenttest_id => @studenttest.id, :student_id => @studenttest.student_id, :valuation_id => valuation[0].id, )
+    sv = Studentvaluation.new(:points => @studenttest.points, :studenttest_id => @studenttest.id, :student_id => @studenttest.student_id, :valuation_id => valuation[0]["id"] )
+    sv.save
     redirect_to studenttests_url, :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
   end
 
   def result
-    #Ausgabe in pdf 
+    @studenttest = Studenttest.find(params[:id])
+    @studenttest.change("shipped")
+    @questions = @studenttest.classtest.testtype.questions
+    respond_to do |format|
+      format.pdf do
+        pdf = StudenttestPdf.new(@studenttest)
+        send_data pdf.render, filename: "Testergebnis-#{current_user.login}-#{@studenttest.classtest.title}",
+                            type: "application/pdf",
+                            disposition: "inline"
+      end
+      format.html 
+    end
   end
 
   def index
-    if $redis.hget(@current_user.login.to_sym, :classwork_lecture).blank?
-      @studenttests = nil
-    else
-      @classtests = Classtest.where(:lecture_id => eval($redis.hget(@current_user.login.to_sym, :classwork_lecture))['id'])
+    #if $redis.hget(@current_user.login.to_sym, :classwork_lecture).blank?
+    #  @studenttests = nil
+    @lecture = Lecture.find(params[:lecture])
+    @classtests = Classtest.where(:lecture_id => @lecture.id)
+    if @classtests
       classtest_ids = @classtests.map {|t| t.id}
       student_id = eval($redis.hget(:current_user, current_user.login.to_sym))["student_id"]
-      @title = eval($redis.hget(current_user.login.to_sym, :classwork_lecture))['title']
       @studenttests = Studenttest.where(:student_id => student_id, :classtest_id => classtest_ids)
     end
     respond_to do |format|
