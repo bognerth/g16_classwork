@@ -9,7 +9,7 @@ class Classtest < ActiveRecord::Base
 
   after_create :initialize_studenttests
 
-  CATEGORIES = %w(Multiplechoice Text Mixed)
+  CATEGORIES = %w(Multiplechoice Text Mixed Upload)
 
   ICON_STATES = {"new" => 'lock', "open" => "unlock", "canceled" => 'lock', 'shipped' => 'download', 'closed' => 'archive'}
   STATES = %w[new open canceled shipped closed]
@@ -39,8 +39,12 @@ class Classtest < ActiveRecord::Base
   def initialize_studenttests
     student_ids = $redis.smembers "students_#{self.lecture_id}"
     student_ids.each do |student_id|
-      studenttest = Studenttest.create(:classtest_id => self.id, :student_id => student_id.to_s) 
-      Studentanswer.generate_studentanswers(studenttest.id)
+      studenttest = Studenttest.create(:classtest_id => self.id, :student_id => student_id.to_s)
+      if self.category == "Upload"
+        Studentanswer.generate_studentanswer(studenttest.id)
+      else
+        Studentanswer.generate_studentanswers(studenttest.id)
+      end
     end
   end
 end

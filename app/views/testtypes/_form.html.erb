@@ -5,8 +5,11 @@
     <%= f.input :coursetype, collection: Testtype::COURSES %>
     <%= f.input :title %>
     <%= f.input :description %>
-    <%= f.input :test_avatar, :as => :file %>
-    <%= f.input :create_questions, :as => :radio_buttons %>
+    <fieldset>
+      <b>Nur wenn eine Datei mit Fragen und Antworten per Dump integriert werden soll</b><br />
+      <%= f.input :test_avatar, :as => :file %>
+      <%= f.input :create_questions, :as => :radio_buttons %>
+    </fieldset>
   </div>
 
   <div class="form-actions">

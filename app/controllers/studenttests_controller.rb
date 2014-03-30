@@ -25,6 +25,13 @@ class StudenttestsController < ApplicationController
     sv.save
     redirect_to studenttests_url, :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
   end
+  def result_details
+    @studenttest = Studenttest.find(params[:id])
+    @studentanswers = Studentanswer.where(studenttest_id: params[:id])
+  end
+  def results_for_teacher
+    @studenttests = Studenttest.where(classtest_id: params[:classtest_id])
+  end
 
   def result
     @studenttest = Studenttest.find(params[:id])
@@ -39,6 +46,15 @@ class StudenttestsController < ApplicationController
       end
       format.html 
     end
+  end
+
+  def download
+    @studenttest = Studenttest.find(params[:id])
+    #raise @page.file.to_yaml
+    send_file(@studenttest.result_file.path,
+        :filename => File.basename(@studenttest.result_file.path),
+        :disposition => 'attachment',
+        :url_based_filename => true)
   end
 
   def index
@@ -65,15 +81,15 @@ class StudenttestsController < ApplicationController
       if @studenttest.current_state == 'new'
         @studenttest.change("started")
         @studenttest.update_attributes(:start => DateTime.now, :end => nil, :points => 0)
+      end
+      if @studenttest.classtest.category == "Upload"
+        render "upload"
+      else
         Studentanswer.where(:studenttest_id => @studenttest.id).each do |sa|
           sa.update_attributes(:selected => false, :points => 0)
         end
-      end
-      #@lecture = Lecture.find(@studenttest.lecture_id)
-      @questions = @studenttest.classtest.testtype.questions
-      respond_to do |format|
-        format.html # show.html.erb
-        format.json { render json: @studenttest }
+        @questions = @studenttest.classtest.testtype.questions
+        render "show"
       end
     end
   end
@@ -89,13 +105,10 @@ class StudenttestsController < ApplicationController
     end
   end
 
-  # GET /studenttests/1/edit
   def edit
     @studenttest = Studenttest.find(params[:id])
   end
 
-  # POST /studenttests
-  # POST /studenttests.json
   def create
     @studenttest = Studenttest.new(params[:studenttest])
 
@@ -110,11 +123,9 @@ class StudenttestsController < ApplicationController
     end
   end
 
-  # PUT /studenttests/1
-  # PUT /studenttests/1.json
   def update
     @studenttest = Studenttest.find(params[:id])
-
+    params[:studenttest][:end] = DateTime.now
     respond_to do |format|
       if @studenttest.update_attributes(params[:studenttest])
         format.html { redirect_to @studenttest, notice: 'Studenttest was successfully updated.' }
@@ -126,8 +137,6 @@ class StudenttestsController < ApplicationController
     end
   end
 
-  # DELETE /studenttests/1
-  # DELETE /studenttests/1.json
   def destroy
     @studenttest = Studenttest.find(params[:id])
     @studenttest.destroy

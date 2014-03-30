@@ -35,10 +35,10 @@
           </td>
           <td>
             <nobr>
-              <%= link_to raw("<i class='fi-torsos dark-green icon-normal'></i>"), students_classtest_path(classtest) %>
-              <%= link_to raw("<i class='fi-eye dark-green icon-normal'></i>"), classtest %>
+              <%= link_to raw("<i class='fi-torsos dark-green icon-normal'></i>"), students_classtest_path(classtest), title: "Studentenverteilung überprüfen. Alle Schüler diesem Test zugeordnet?" %>
+              <%= link_to raw("<i class='fi-eye dark-green icon-normal'></i>"), results_for_teacher_studenttests_path(classtest_id: classtest.id), title: "Schülerergebnisse für diesen Test ansehen" %>
               <%= link_to raw("<i class='fi-pencil dark-green icon-normal'></i>"), edit_classtest_path(classtest) %>
-              <%= link_to raw("<i class='fi-trash dark-green icon-normal'></i>"), classtest, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <%= link_to raw("<i class='fi-trash dark-red icon-normal'></i>"), classtest, method: :delete, data: { confirm: 'Are you sure?' } %>
             </nobr>
           </td>
         <% else %>

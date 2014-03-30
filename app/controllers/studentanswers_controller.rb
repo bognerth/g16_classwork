@@ -78,6 +78,7 @@ class StudentanswersController < ApplicationController
       if @studentanswer.update_attributes(params[:studentanswer])
         format.html { redirect_to @studentanswer, notice: 'Studentanswer was successfully updated.' }
         format.js
+        format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.js { render json: @studentanswer.errors, status: :unprocessable_entity }

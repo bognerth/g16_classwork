@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140216065219) do
+ActiveRecord::Schema.define(:version => 20140330082305) do
 
   create_table "answers", :force => true do |t|
     t.text     "title"
@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(:version => 20140216065219) do
     t.integer  "points",       :default => 0
     t.datetime "created_at",                  :null => false
     t.datetime "updated_at",                  :null => false
+    t.string   "result_file"
   end
 
   create_table "testtypes", :force => true do |t|

@@ -26,9 +26,12 @@ G16Classwork::Application.routes.draw do
       get 'state'
       get 'finish'
       get 'result'
+      get 'result_details'
+      get 'download'
     end
     collection do
       get 'get_for_valuation'
+      get 'results_for_teacher'
     end
   end
 

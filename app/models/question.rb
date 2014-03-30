@@ -4,6 +4,6 @@ class Question < ActiveRecord::Base
   has_many :answers, :dependent => :destroy
   has_many :studentanswers
 
-  CATEGORIES = %w(Multiplechoice Text MehrereAntworten)
+  CATEGORIES = %w(Multiplechoice Text MehrereAntworten Bewertung)
 
 end

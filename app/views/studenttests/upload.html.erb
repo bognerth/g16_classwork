@@ -1,0 +1,19 @@
+<ul class="pricing-table">
+  <li class="title"><%= @studenttest.classtest.title %></li>
+  
+  <%= simple_form_for(@studenttest) do |f| %>
+    <%= f.error_notification %>
+      <li class="description">
+        <div class="form-inputs">
+          Upload Ihrer Arbeit:<br />
+          <%= f.input :result_file, :as => :file %>
+        </div>
+      </li>
+      <li class="cta-button">
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+      </li>
+    <% end %>
+</ul>
+

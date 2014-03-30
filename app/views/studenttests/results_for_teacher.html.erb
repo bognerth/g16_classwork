@@ -1,0 +1,46 @@
+<% if @studenttests.blank? %>
+  <div class="panel callout radius">
+    <h3>Keine Tests vorhanden.</h3>
+  </div>
+<% else %>
+  <h3>Tests fuer Kurs: <%= @studenttests.first.classtest.title %></h3>
+  
+  <div class="panel callout radius">
+    <%= @studenttests.first.classtest.description %><br />
+    Dauer: <%= @studenttests.first.classtest.duration %>
+  </div>
+
+  <div id="window_modal" class="reveal-modal small" data-reveal></div>
+
+  <table class="datatable">
+    <thead>
+      <tr>
+        <th>Titel</th>
+        <th>Start</th>
+        <th>Ende</th>
+        <th>Punkte</th>
+        <th>Note</th>
+        <th>Details</th>
+        <th>Datei</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @studenttests.each do |studenttest| %>
+      <tr>
+        <td><%= $redis.get "userstudent_#{studenttest.student_id}" %></td>
+        <td><%= studenttest.start %></td>
+        <td><%= studenttest.end %></td>
+        <td><%= best_in_place studenttest, :points %></td>
+        <td><%= POINTS_TO_NOTE[studenttest.points] %></td>
+        <td><%= link_to raw('<i class="fi-pencil dark-blue icon-normal"></i>'),
+              result_details_studenttest_path(studenttest.id),
+              :remote => true, 
+              :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"', 
+              title: "Testfragen zum Editieren im Detail." %>
+        </td>
+        <td><%= studenttest.result_file.blank? %><%= link_to(raw('<i class="fi-upload dark-green icon-normal"></i>'), download_studenttest_path(studenttest), title: "Dokument herunterladen") unless studenttest.result_file.blank? %></td>
+      </tr>
+    <% end %>  
+    </tbody>
+  </table>
+<% end %>

@@ -1,0 +1,29 @@
+<a class="close-reveal-modal">&#215;</a>
+
+<h3>Bewerten von <%= $redis.get "userstudent_#{@studenttest.student_id}" %></h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Frage</th>
+        <th>max. Punkte</th>
+        <th>Punkte</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @studentanswers.each do |item| %>
+        <tr>
+          <td><%= item.question.title %></td>
+          <td><%= item.question.points %></td>
+          <td><%= best_in_place item, :points %></td>
+        </tr>    
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="button-bar text-right">
+    <ul class="button-group radius">
+      <li><a href="#" onclick="$('a.close-reveal-modal').trigger('click');" class="small button notice">Fertig</a></li>
+      <!--<li><a href="#" class="small button success">Weiter</a></li>-->
+    </ul>
+  </div> 
