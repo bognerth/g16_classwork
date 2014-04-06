@@ -38,7 +38,8 @@
               :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"', 
               title: "Testfragen zum Editieren im Detail." %>
         </td>
-        <td><%= studenttest.result_file.blank? %><%= link_to(raw('<i class="fi-upload dark-green icon-normal"></i>'), download_studenttest_path(studenttest), title: "Dokument herunterladen") unless studenttest.result_file.blank? %></td>
+        <td><%= studenttest.result_file.blank? %><%= link_to(raw('<i class="fi-upload dark-green icon-normal"></i>'), download_studenttest_path(studenttest), title: "Dokument herunterladen") unless studenttest.result_file.blank? %>
+        </td>
       </tr>
     <% end %>  
     </tbody>
