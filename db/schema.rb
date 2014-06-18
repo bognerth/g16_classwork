@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140330082305) do
+ActiveRecord::Schema.define(:version => 20140617135702) do
 
   create_table "answers", :force => true do |t|
     t.text     "title"
@@ -40,6 +40,17 @@ ActiveRecord::Schema.define(:version => 20140330082305) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "lecture"
+    t.string   "period"
+    t.date     "period_start"
+    t.date     "period_end"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "questions", :force => true do |t|
     t.text     "title"
     t.string   "category"
@@ -61,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20140330082305) do
     t.integer  "answer_id"
     t.text     "result"
     t.boolean  "selected",       :default => false
+    t.integer  "functionality",  :default => 0
   end
 
   create_table "studenttest_events", :force => true do |t|

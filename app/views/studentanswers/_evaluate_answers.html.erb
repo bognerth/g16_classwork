@@ -13,7 +13,15 @@
     <tbody>
       <% @studentanswers.each do |item| %>
         <tr>
-          <td><%= item.question.title %></td>
+          <td>
+            <%= item.question.title %><br />
+            <% if item.question.category == "Text" %>
+              <hr />
+              <%= item.result %>
+              <hr />
+              <%= best_in_place item, :functionality %> %
+            <% end %>
+          </td>
           <td><%= item.question.points %></td>
           <td><%= best_in_place item, :points %></td>
         </tr>    

@@ -1,5 +1,5 @@
 class Studentanswer < ActiveRecord::Base
-  attr_accessible :points, :question_id, :studenttest_id, :answer_id, :result, :selected
+  attr_accessible :points, :question_id, :studenttest_id, :answer_id, :result, :selected, :functionality
 
   belongs_to :question
   belongs_to :studenttest 

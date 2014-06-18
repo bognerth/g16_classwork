@@ -20,11 +20,16 @@ class StudenttestsController < ApplicationController
     @studenttest = Studenttest.find(params[:id])
     @studenttest.change("closed")
     @studenttest.update_attributes(:end => DateTime.now, :points => @studenttest.sum_points)
-    valuation = Valuation.find(:all, :params => {:classtest_id => 6})
-    sv = Studentvaluation.new(:points => @studenttest.points, :studenttest_id => @studenttest.id, :student_id => @studenttest.student_id, :valuation_id => valuation[0]["id"] )
-    sv.save
+    valuation = Valuation.find(:all, :params => {:classtest_id => @studenttest.classtest_id})
+    #raise valuation[0].id.to_yaml
+    sv = Studentvaluation.create(:points => @studenttest.points, :studenttest_id => @studenttest.id, 
+      :student_id => @studenttest.student_id, :valuation_id => valuation[0].id )
+    #raise sv.to_yaml
+    
+    #sv.save
     redirect_to studenttests_url, :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
   end
+
   def result_details
     @studenttest = Studenttest.find(params[:id])
     @studentanswers = Studentanswer.where(studenttest_id: params[:id])
