@@ -7,7 +7,8 @@
   
   <div class="panel callout radius">
     <%= @studenttests.first.classtest.description %><br />
-    Dauer: <%= @studenttests.first.classtest.duration %>
+    Dauer: <%= @studenttests.first.classtest.duration %><br />
+    <%= link_to "Alle Points aktualisieren", refresh_allpoints_studenttests_path(classtest_id: @studenttests.first.classtest_id) %>
   </div>
 
   <div id="window_modal" class="reveal-modal small" data-reveal></div>
@@ -19,6 +20,7 @@
         <th>Start</th>
         <th>Ende</th>
         <th>Punkte</th>
+        <th></th>
         <th>Note</th>
         <th>Details</th>
         <th>Datei</th>
@@ -30,15 +32,22 @@
         <td><%= $redis.get "userstudent_#{studenttest.student_id}" %></td>
         <td><%= studenttest.start %></td>
         <td><%= studenttest.end %></td>
-        <td><%= best_in_place studenttest, :points %></td>
+        <td id="points_<%= studenttest.id %>">
+          <%= best_in_place studenttest, :points %>
+        </td>
+        <td>
+          <%= link_to raw('<i class="fi-annotate dark-green icon-normal"></i>'),
+              refresh_points_studenttest_path(studenttest.id),
+              :remote => true, title: "Punkte aktualisieren." %>
+        </td>
         <td><%= POINTS_TO_NOTE[studenttest.points] %></td>
-        <td><%= link_to raw('<i class="fi-pencil dark-blue icon-normal"></i>'),
+        <td><%= link_to raw('<i class="fi-pencil dark-green icon-normal"></i>'),
               result_details_studenttest_path(studenttest.id),
               :remote => true, 
               :html => 'data-reveal-id="day_modal" data-reveal-ajax="true"', 
               title: "Testfragen zum Editieren im Detail." %>
         </td>
-        <td><%= studenttest.result_file.blank? %><%= link_to(raw('<i class="fi-upload dark-green icon-normal"></i>'), download_studenttest_path(studenttest), title: "Dokument herunterladen") unless studenttest.result_file.blank? %>
+        <td><%= result_file_upload studenttest %>
         </td>
       </tr>
     <% end %>  

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20140617135702) do
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
     t.integer  "question_id"
-    t.string   "order",       :default => "o"
+    t.string   "order",       :default => "m"
   end
 
   create_table "classtest_events", :force => true do |t|
@@ -40,17 +40,6 @@ ActiveRecord::Schema.define(:version => 20140617135702) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "pages", :force => true do |t|
-    t.string   "title"
-    t.string   "description"
-    t.string   "lecture"
-    t.string   "period"
-    t.date     "period_start"
-    t.date     "period_end"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
-  end
-
   create_table "questions", :force => true do |t|
     t.text     "title"
     t.string   "category"
@@ -59,7 +48,7 @@ ActiveRecord::Schema.define(:version => 20140617135702) do
     t.string   "image"
     t.datetime "created_at",                   :null => false
     t.datetime "updated_at",                   :null => false
-    t.string   "order",       :default => "o"
+    t.string   "order",       :default => "m"
     t.string   "help"
   end
 

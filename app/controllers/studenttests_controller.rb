@@ -29,10 +29,22 @@ class StudenttestsController < ApplicationController
     #sv.save
     redirect_to studenttests_url, :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
   end
-
+  def refresh_points
+    @studenttest = Studenttest.find(params[:id])
+    points = @studenttest.sum_points
+    @studenttest.update_attribute(:points,points)
+  end
+  def refresh_allpoints
+    @studenttests = Studenttest.where(classtest_id: params[:classtest_id])
+    @studenttests.each do |studenttest|
+      points = studenttest.sum_points
+      studenttest.update_attribute(:points,points)
+    end
+    redirect_to results_for_teacher_studenttests_url(classtest_id: params[:classtest_id]), notice: "Punkte wurden aktualisiert"
+  end
   def result_details
     @studenttest = Studenttest.find(params[:id])
-    @studentanswers = Studentanswer.where(studenttest_id: params[:id])
+    @studentanswers = Studentanswer.where(studenttest_id: params[:id]).order(:question_id)
   end
   def results_for_teacher
     @studenttests = Studenttest.where(classtest_id: params[:classtest_id])

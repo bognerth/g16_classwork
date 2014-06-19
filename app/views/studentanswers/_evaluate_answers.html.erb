@@ -17,7 +17,7 @@
             <%= item.question.title %><br />
             <% if item.question.category == "Text" %>
               <hr />
-              <%= item.result %>
+              <%= simple_format item.result %>
               <hr />
               <%= best_in_place item, :functionality %> %
             <% end %>

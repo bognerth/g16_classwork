@@ -28,10 +28,12 @@ G16Classwork::Application.routes.draw do
       get 'result'
       get 'result_details'
       get 'download'
+      get 'refresh_points'
     end
     collection do
       get 'get_for_valuation'
       get 'results_for_teacher'
+      get 'refresh_allpoints'
     end
   end
 
