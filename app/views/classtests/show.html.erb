@@ -6,7 +6,10 @@
   <li class="bullet-item">Kurs: <%= @lecture.title unless @lecture.blank? %></li>
   <li class="bullet-item">Kategorie: <%= @classtest.category %></li>
   <li class="bullet-item">Dauer: <%= @classtest.duration %></li>
-  <li class="cta-button"><%= link_to "Alle Klassenarbeiten", classtests_path, :class => "button" %></li>
+  <li class="cta-button">
+    <%= link_to "Schuelerergebnisse", results_for_teacher_studenttests_path(classtest_id: @classtest.id), :class => "button" %>
+    <%= link_to "Aufgabe zur Korrektur", valuate_results_classtest_path(@classtest.id), :class => "button" %>
+  </li>
 </ul>
 
 <div class="panel callout radius">

@@ -42,6 +42,8 @@ G16Classwork::Application.routes.draw do
       get 'state'
       get 'students'
       get 'addstudents'
+      get 'valuate_results'
+      get 'valuate_single_question'
     end
   end
 

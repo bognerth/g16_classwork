@@ -10,6 +10,22 @@ class ClasstestsController < ApplicationController
     end
   end
 
+  def valuate_results
+    @studenttests = Studenttest.where(classtest_id: params[:classtest_id])
+    @classtest = Classtest.find(params[:id])
+    @questions = @classtest.testtype.questions.order(:id)
+  end
+
+  def valuate_single_question
+    @classtest_id = params[:id]
+    @question = Question.find(params[:question_id])
+    @studenttests = Studenttest.where(classtest_id: params[:id])
+    @studentanswers = {}
+    @studenttests.each do |studenttest|
+      @studentanswers[studenttest.student_id] = Studentanswer.where(question_id: params[:question_id], studenttest_id: studenttest.id).first
+    end
+  end
+
   def addstudents
     classtest = Classtest.find(params[:id])
     student_without_test = classtest.search_for_missing_studenttests

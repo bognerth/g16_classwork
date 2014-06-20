@@ -1,0 +1,29 @@
+<p><%= @question.title %></p>
+<p>Maximale Punkte: <%= @question.points %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Schueler</th>
+      <th>Loesung</th>
+      <th>Punkte</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @studentanswers.each do |key,item| %>
+      <tr>
+        <td valign="top"><strong><%= $redis.get "userstudent_#{key}" %></strong></td>
+        <td><%= simple_format(item.result) if item && item.result %></td>
+        <td>
+          <%= best_in_place(item, :points) if item && item.points %><br />
+          <%= item.functionality if item %> %
+        </td>
+      </tr>    
+    <% end %>
+  </tbody>
+</table>
+
+<div class="panel callout radius">
+  <h5><%= link_to "Alle Fragen anzeigen", valuate_results_classtest_path(@classtest_id) %> |
+  <%= link_to "Alle Schuelertests anzeigen", results_for_teacher_studenttests_path(classtest_id: @classtest_id) %></h5>
+</div>

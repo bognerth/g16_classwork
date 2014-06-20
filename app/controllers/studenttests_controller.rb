@@ -27,7 +27,7 @@ class StudenttestsController < ApplicationController
     #raise sv.to_yaml
     
     #sv.save
-    redirect_to studenttests_url, :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
+    redirect_to studenttests_url(:lecture => @studenttest.classtest.lecture_id), :notice => "Sie haben den Test absolviert. Wenn sich der Status auf 'shipped' aendert, koennen Sie das Ergebnis sehen."
   end
   def refresh_points
     @studenttest = Studenttest.find(params[:id])

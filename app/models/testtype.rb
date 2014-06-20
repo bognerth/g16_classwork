@@ -8,7 +8,7 @@ class Testtype < ActiveRecord::Base
   
   mount_uploader :test_avatar, TestAvatarUploader
 
-  COURSES = %w( Linux LinuxShell LinuxServer Programmierung LostAndFound )
+  COURSES = %w( Linux LinuxShell BashSkripting LinuxServer Programmierung LostAndFound )
 
   def sum_points
     questions.sum(:points)
@@ -16,6 +16,7 @@ class Testtype < ActiveRecord::Base
 
   after_save :initialize_questions
   def initialize_questions
+    #falls eine Textdatei mitgegeben wurde
     if create_questions
       update_attribute(:create_questions, false)
       Question.destroy_all(:testtype_id => id)

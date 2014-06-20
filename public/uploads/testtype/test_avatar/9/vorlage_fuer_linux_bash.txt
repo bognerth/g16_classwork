@@ -1,0 +1,156 @@
+#-*- encoding: utf-8 -*-
+@;Multiplechoice;An welcher Universität wurde UNIX weiterentwickelt?
+0;Massachusetts Institute of Technology
+2;University of California, Berkely
+0;University of Illinois
+0;Harvard
+@;Multiplechoice;Was versteht man unter dem Begriff POSIX?
+0;Eine UNIX-Variante
+0;Eine Programmiersprache
+2;Der kleinste gemeinsame Nenner aller UNIX-Systeme
+0;Eine jährliche UNIX-Entwicklerkonferenz in San Francisco
+@;Multiplechoice;Was ist eine GUI?
+2;Graphical User Interface (Grafische Benutzeroberfläche)
+0;Generic UNIX Interface (UNIX-Standard-Systemschnittstelle)
+0;Globally Unique Identity (Weltweit einmalige Registriernummer)
+0;Gate Undefined Issue (Sicherheitslücke in Betriebssystemen)
+@;Multiplechoice;Wofür steht die Abkürzung GNU?
+0;Georgia Newton University
+2;GNU's Not UNIX
+0;Graphical Network Usage
+0;Global Networking Union
+@;Multiplechoice;Welche der folgenden Aussagen über den Kernel trifft zu?
+0;Monolithische Kernel sind schneller als Mikrokernel
+0;Alle modernen Kernel sind Mikrokernel
+2;Der Kernel führt die Prozess- und Speicherverwaltung durch
+0;Der Kernel stellt die grafische Benutzeroberfläche bereit
+@;Multiplechoice;Was bedeutet "Bootstrapping" beim Betriebssytem?
+0;Kontrolle des Bootvorgangs eines PCs über das Netzwerk
+0;Installation eines Gerätetreibers
+0;Im Hintergrund laufende Programme während des Bootvorgangs
+2;Anderes Wort für das Booten des Betriebssystems
+@;Multiplechoice;Wie lautet der relative Pfad, um von /home/user1/test/ aus die Datei /home/user2/hallo.txt anzusprechen?
+0;../user2/hallo.txt
+0;../../hallo.txt
+0;user2/hallo.txt
+2;../../user2/hallo.txt
+@;Multiplechoice;Für welches Verzeichnis im UNIX-Verzeichnisbaum steht die Abkürzung ~ ?
+0;das Systemverzeichnis
+2;das Home-Verzeichnis des aktuellen Benutzers
+0;das Wurzelverzeichnis
+0;das Verzeichnis /usr/sbin
+@;Multiplechoice;Was geschieht, wenn unter UNIX "ls -l > verzeichnis.txt" eingegeben wird?
+0;Der Befehl ls liest seine Optionen aus der Datei verzeichnis.txt
+0;Es werden nur Dateien angezeigt, deren Dateinamen im Alphabet hinter verzeichnis.txt liegen
+2;Die Ausgabe des Befehls ls wird in die Datei verzeichnis.txt umgeleitet
+0;Der Inhalt der Datei verzeichnis.txt wird zeilenweise aufgelistet
+@;Multiplechoice;Welches Zeichen oder welche Zeichenfolge verwenden UNIX-Textdateien als Zeilenumbruch?
+0;CR (ASCII-Code 13)
+0;LF+CR (ASCII-Codes 10+13)
+2;LF (ASCII-Code 10)
+0;CR+LF (ASCII-Codes 13+10)
+@;Multiplechoice;Der erste Linux-Kernel wurde von folgender Person geschrieben:
+0;Ken Thompson
+0;Bill Gates
+0;Steve Balmer
+2;Linus Torvalds
+@;Multiplechoice;Linux gibt es seit
+0;1969
+0;1970
+2;1991
+0;1993
+@;Multiplechoice;Was bedeutet GNU?
+0;General Public License
+2;Gnu is not Unix
+0;Generally not Unix
+@;Multiplechoice;Von wem wurde das GNU-Projekt gegründet?
+0;Linux Torvalds
+0;Richard Stallman gründete zusammen mit Linux Torvalds das GNU-Projekt
+2;Richard Stallman
+0;AT&T
+@;Multiplechoice;Welcher Entwickler hat entscheidenden Anteil am Entstehen von Unix
+0;Linus Torvald
+0;Andrew Tannenbaum
+2;Dennis Ritchie
+0;Richard Stallman
+@;Multiplechoice;Welcher Entwickler hat entscheidenden Anteil am Entstehen von Linux
+2;Linus Torvald
+0;Andrew Tannenbaum
+0;Dennis Ritchie
+0;Richard Stallman
+@;Multiplechoice;Welche Aussage stimmt fuer die Entstehung von Unix
+0;Unix wurde von Andrew S. Tanenbaum an der Uni Amsterdam für Unterrichtszwecke geschrieben.
+0;Unix wurde Ender der 70er von Studenten in Berkley auf die Vax transferiert.
+2;Unix war ein HobbyProjekt von Ken Thompson und Dennis Ritchie, Entwickler bei den Bell Laboratories (AT&T).
+0;Unix wurde als Terminalemulator fuer einen 386er PC entwickelt.
+0;Keine der Aussagen trifft zu
+@;Multiplechoice;Welches Aussage charakterisiert den Zusammenhang zwischen BSD und Unix
+0;Unix wurde von Andrew S. Tanenbaum an der Uni Amsterdam für Unterrichtszwecke geschrieben.
+2;Unix wurde Ender der 70er von Studenten in Berkley auf die Vax transferiert.
+0;Unix war ein HobbyProjekt von Ken Thompson und Dennis Ritchie, Entwickler bei den Bell Laboratories (AT&T).
+0;Unix wurde als Terminalemulator fuer einen 386er PC entwickelt.
+0;Keine der Aussagen trifft zu
+@;Multiplechoice;Welche Aussage ist falsch. Bei Linux gilt grundsätzlich ... 
+0;Alles ist eine Datei, z.B. die PCI-Geräte des Computers in der Datei/proc/pci 
+2;Kleine, spezialisierte Programme.Ein Programm erledigt nur eine Aufgabe, aber die perfekt: less kann nur Ordnerinhalte anzeigen
+0;Vermeidung von Redundanz: wenn ein Programm eine Aufgabe erfolgreich erledigt hat, gibt es keine Ausgabe: touch datei.
+@;Multiplechoice;Urheberrecht bedeutet nicht:
+0;Der Urheber eines Werks hat als einziger das Verfügungsrecht über das Erzeugnis
+2;Der Urheber ist verpflichtet 
+@;Multiplechoice;Welches Aussage charakterisiert die Softwareproduktion in den 60er und 70er Jahren am Besten
+2;Software wurde nicht verkauft, sondern war Bestandteil der Hardware
+0;Programme kopieren und zu tauschen war selbstverständlich
+0;Software war unbezahlbar teuer
+@;Multiplechoice;Welcher Grund hat am Entstehen des GNU-Systems keinen Anteil
+0;Software wurde in den 70ern und 80ern zur Ware
+0;Der Quellcode des gekauften Produktes war nicht mehr einsehbar
+2;Linus Torvald wollte Linux eine Basis in der Community geben
+0;Richard M.Stallman wollte ein System implementieren, das auf der Kultur des Teilens basiert
+@;Multiplechoice;Welches Merkmal trifft für freie Software im Sinne des GNU-Systems nicht zu
+0;das Programm muss für jeden beliebigen Zweck benutzt werden dürfen
+0;der Quellcode muss einsehbar und veränderbar sein
+2;die Arbeit des Programmierers soll geschützt werden
+0;das veränderte Programm muss veröffentlicht und  weitergegeben werden können
+@;Multiplechoice;Auf der Basis von OpenSourceSoftware kann man kein Geld verdienen mit ...
+0;Training
+0;Dokumentation
+0;Kundenspezifische Weiterentwicklung und Anpassung
+2;Mit allen genannten Tätigkeiten kann eine Firma Geld verdienen
+@;Multiplechoice;Wozu ist man verpflichtet, wenn man unter der GPL (General Public License) veröffentlichte Software weiterentwickelt
+0;die eigene Software unter der GPL veröffentlichen
+2;den Quellcode verschlüsseln
+@;Multiplechoice;Welches Lizenzmodelle ist nicht im Umfeld von OpenSource
+0;Apache-Lizenz
+0;Mozilla Public Lizenz
+2;Eula
+0;BSD Lizenz
+@;Multiplechoice;Welche Distribution basiert auf der Paketverwaltung DEB
+0;Red Hat
+0;Suse
+2;Debian
+@;Multiplechoice;Welche Distribution wird von einer nicht firmengebundenen Community gepflegt
+0;Red Hat
+0;Suse
+2;Debian
+@;Multiplechoice;Welche Distribution ist auf Server spezialisiert?
+2;Red Hat
+0;Suse
+0;Debian
+@;Multiplechoice;Welche Zuordnung von Paketverwaltungen und Distribution trifft zu:
+0;RPM (Suse, RedHat, Ubuntu)
+2;DEB (Debian, ubuntu)
+0;DEB (Debian, Arch-Linux)
+@;Multiplechoice;Welche Aussage zum Thema Kernel ist falsch:
+0;Der Kernel bildet die hardwareabstrahierende Schicht (Hardwareabstraktionsschicht), das heißt, er stellt der auf dieser Basis aufsetzenden Software eine einheitliche Schnittstelle (API) zur Verfügung, die unabhängig von der Rechnerarchitektur ist.
+0; Der modulare Aufbau ds Kernel ermöglicht es, im laufenden Betrieb Komponenten hinzu zu fügen und zu entfernen 
+2;Beide Aussagen sind korrekt
+@;Multiplechoice;Welche Zuordnung stimmt für grafische Arbeitsumgebungen
+0;Gnome,LXDE, KDE vollwertig
+2;Gnome + KDE vollwertig
+0;KDE leichtgewichtig
+0;XFCE vollwertig
+@;Text;Listen Sie die Befehle nacheinander auf, die folgende Aktivitäten realisieren: Sie sind als pan angemeldet und haben eine Konsole geöffnet. Im Homeverzeichnis des Users pan ist ein neues Verzeichnis 'test' zu erstellen. In diesem Verzeichnis wird ein Unterverzeichnis 'info' erstellt und eine Datei 'bash_info.txt' erzeugt. Die Datei 'bash_info.txt' wird ins Verzeichnis 'info' kopiert. Die Datei 'bash_info.txt', die sich noch im Verzeichnis 'test' befindet wird gelöscht. Speichern Sie mit einem Konsolenbefehl die Zeichenfolge 'Es darf gelacht werden' in eine Datei mit dem Namen 'Genehmigung.txt' im Verzeichnis 'test'. Nennen Sie die Datei 'Genehmigung.txt' in 'Verbote.txt' um. Fügen Sie mit einem Konsolenbefehl die Zeichenfolge 'Genehmigung entzogen' der Datei 'Verbote.txt' hinzu. Löschen Sie den Ordner 'info' mitsamt des Inhalts.
+@;Text;Listen Sie die Befehle, bzw. Tastatureingaben nacheinander auf, die folgende Aktivitäten realisieren: Erzeugen und Öffnen Sie eine neue Datei mit dem Namen 'my_name.txt' mit dem Editor vim. Schreiben Sie in die Datei Ihren Vor-, Nachnamen. Speichern Sie die Datei und verlassen Sie den vi. Hinweis: Auch die Steuerzeichen des vi gehören zur Lösung.
+@;Text;Nennen Sie den Befehl mit dem Sie im Verzeichnis /etc nach einer Datei mit dem Namen findme suchen
+@;Text;Nennen Sie den Befehl mit dem Sie vom Verzeichnis /etc/apache2 ausgehend nach dem Text: ‚error1588‘ in einer Datei suchen
+@;Text;Sie haben mit dem vim eine Datei 'test.sh' geöffnet. Notieren Sie den Code um folgende Aktionen durchzuführen: Shebang-Zeile; Speichern des Dateinamens in der Variable 'datei'; Ausgabe der Variable. Dann nennen Sie den Befehl um die Datei 'test.sh' ausführbar zu machen. Dann nennen Sie den Befehl um das Skript auf der Konsole auszuführen.

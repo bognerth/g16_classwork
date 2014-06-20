@@ -54,3 +54,8 @@
     </tbody>
   </table>
 <% end %>
+
+<div class="panel callout radius">
+  <h5><%= link_to "Alle Tests anzeigen", classtests_path %> |
+  <%= link_to "Aufgaben zur Korrektur", valuate_results_classtest_path(@studenttests.first.classtest_id) %></h5>
+</div>
