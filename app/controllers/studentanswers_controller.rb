@@ -16,7 +16,9 @@ class StudentanswersController < ApplicationController
     if params[:studentanswer] && params[:studentanswer].count == 1
       studentanswer = Studentanswer.find(params[:studentanswer][0])
       Studentanswer.where(:studenttest_id => studentanswer.studenttest_id, :question_id => studentanswer.question_id).each do |sa|
-        sa.update_attributes(:selected => false, :points => 0)
+        unless sa.id ==  params[:studentanswer][0].to_i
+          sa.update_attributes(:selected => false, :points => 0)
+        end
       end
       points = studentanswer.answer.points == 0 ? 0 : studentanswer.question.points
       studentanswer.update_attributes(:selected => true, :points => points)

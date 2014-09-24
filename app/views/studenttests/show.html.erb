@@ -1,7 +1,7 @@
 <ul class="pricing-table">
   <li class="title"><%= @studenttest.classtest.title %></li>
   <li class="cta-button"><%= link_to "Test beenden", finish_studenttest_path(@studenttest), :class => "button", 
-        data: { confirm: 'Sicher?? Nach dem Beenden können Sie den Test nicht mehr bearbeiten'  %></li>
+        data: { confirm: 'Sicher?? Nach dem Beenden koennen Sie den Test nicht mehr bearbeiten'}  %></li>
 </ul>
 
 <div id="window_modal" class="reveal-modal small" data-reveal></div>
@@ -39,5 +39,5 @@
 
 <div class="panel callout radius">
   <h5><%= link_to "Test beenden", finish_studenttest_path(@studenttest),
-                        data: { confirm: 'Sicher?? Nach dem Beenden können Sie den Test nicht mehr bearbeiten' %></h5>
+                        data: { confirm: 'Sicher?? Nach dem Beenden koennen Sie den Test nicht mehr bearbeiten'} %></h5>
 </div>

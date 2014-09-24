@@ -5,10 +5,13 @@ gem 'rails', '3.2.15'
 gem 'activeresource'
 gem 'pg'
 
-group :development do
-  gem 'capistrano', '2.14.2'
-end
 
+group :development do
+  gem 'capistrano', '~> 3.0', require: false
+  gem 'capistrano-rails',   '~> 1.1', require: false
+  gem 'capistrano-bundler', '~> 1.1', require: false
+  gem 'capistrano-rvm',   '~> 0.1', require: false
+end
 gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'

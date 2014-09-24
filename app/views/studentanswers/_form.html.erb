@@ -1,12 +1,25 @@
 <%= simple_form_for(@studentanswer, :remote => true) do |f| %>
   <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.input :question_id, :as => 'hidden' %>
+  <%= f.input :question_id, :as => 'hidden' %>
     <%= f.input :studenttest_id, :as => 'hidden' %>
-    <%= f.input :result, label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
+  <ul class="pricing-table">
+    <li class="title"><%= @studentanswer.question.title %></li>
+    <li class="description">
+      <p>
+        <%= f.input :result, label: false, :as => :text, :input_html => { :rows => 7 , :style => 'width: 100%'} %>
+      </p>
+      <p><%#= answer.first.question.help %></p>
+    </li>
+    <li class="cta-button"><%= f.button :submit, "Eintragen", :class => "large alert" %></li>
+  </ul>
 <% end %>
+
+
+<div class="button-bar text-right">
+  <ul class="button-group radius">
+    <li><a href="#" onclick="$('a.close-reveal-modal').trigger('click');" class="small button alert">Abbrechen</a></li>
+    <!--<li><a href="#" class="small button success">Weiter</a></li>-->
+  </ul>
+</div> 
+
+<a class="close-reveal-modal">&#215;</a>

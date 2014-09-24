@@ -22,7 +22,7 @@ class ClasstestsController < ApplicationController
     @studenttests = Studenttest.where(classtest_id: params[:id])
     @studentanswers = {}
     @studenttests.each do |studenttest|
-      @studentanswers[studenttest.student_id] = Studentanswer.where(question_id: params[:question_id], studenttest_id: studenttest.id).first
+      @studentanswers[studenttest.student_id] = Studentanswer.where(question_id: params[:question_id], studenttest_id: studenttest.id).first || Studentanswer.create(question_id: params[:question_id], studenttest_id: studenttest.id) 
     end
   end
 

@@ -1,5 +1,7 @@
-<p><%= @question.title %></p>
-<p>Maximale Punkte: <%= @question.points %></p>
+<ul class="pricing-table">
+  <li class="title">Maximale Punkte: <%= @question.points %></li>
+  <li class="bullet-item"><%= @question.title %></li>
+</ul>
 
 <table>
   <thead>
@@ -15,7 +17,7 @@
         <td valign="top"><strong><%= $redis.get "userstudent_#{key}" %></strong></td>
         <td><%= simple_format(item.result) if item && item.result %></td>
         <td>
-          <%= best_in_place(item, :points) if item && item.points %><br />
+          <%= best_in_place(item, :points, :nil => "Click") if item && item.points %><br />
           <%= item.functionality if item %> %
         </td>
       </tr>    

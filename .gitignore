@@ -10,3 +10,5 @@
 /config/application.yml
 /config/database.yml
 /config/deploy.rb
+/config/deploy
+/public/uploads/
